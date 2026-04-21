@@ -8,8 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
-  <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <style>*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --sidebar-w: 270px; --topbar-h: 50px;
   --blue: #2980b9; --blue-dark: #2472a4; --blue-light: #e7f2fa;
@@ -21,8 +20,7 @@
 }
 html { font-size: 15px; scroll-behavior: smooth; }
 body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.75; -webkit-font-smoothing: antialiased; }
-#topbar { position:fixed; top:0; left:0; right:0; height:var(--topbar-h); background:var(--navy); color:#fcfcfc; display:flex; align-items:center; justify-content:space-between; padding:0 1rem; z-index:200; box-shadow:0 2px 4px rgba(0,0,0,.3); }
-.topbar-left { display:flex; align-items:center; gap:.6rem; }
+#topbar { position:fixed; top:0; left:0; right:0; height:var(--topbar-h); background:var(--navy); color:#fcfcfc; display:flex; align-items:center; padding:0 1rem; z-index:200; box-shadow:0 2px 4px rgba(0,0,0,.3); gap:.6rem; }
 .brand { color:#fff; text-decoration:none; font-size:.95rem; font-weight:700; display:flex; align-items:center; gap:.4rem; white-space:nowrap; }
 .brand span.sep { opacity:.3; font-weight:300; }
 .brand span.sub { font-weight:400; font-size:.8rem; opacity:.75; }
@@ -49,7 +47,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .breadcrumb a { color:var(--blue); text-decoration:none; }
 .breadcrumb a:hover { text-decoration:underline; }
 .breadcrumb .sep { margin:0 .4rem; }
-.content-wrap h1 { font-size:1.75rem; font-weight:700; color:#2c3e50; margin-bottom:.5rem; line-height:1.2; }
+.content-wrap h1 { font-size:1.75rem; font-weight:700; color:#2c3e50; margin-bottom:.75rem; line-height:1.2; }
 .content-wrap h2 { font-size:1.2rem; font-weight:700; color:#2c3e50; margin:2rem 0 .75rem; padding-bottom:.4rem; border-bottom:1px solid #e8e8e8; }
 .content-wrap h3 { font-size:1rem; font-weight:700; color:#2c3e50; margin:1.25rem 0 .5rem; }
 .content-wrap p { margin-bottom:.9rem; }
@@ -68,8 +66,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .content-wrap td { padding:.5rem .9rem; border-bottom:1px solid #eee; vertical-align:top; }
 .content-wrap blockquote { border-left:4px solid var(--blue); background:#f4f8fb; padding:.6rem 1rem; margin:1rem 0; border-radius:0 var(--radius) var(--radius) 0; color:#2c3e50; }
 .content-wrap blockquote p { margin-bottom:0; }
-/* Caso components */
-.caso-ficha { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:.75rem; margin:1rem 0 1.75rem; }
+.caso-ficha { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:.75rem; margin:1rem 0 1.75rem; }
 .caso-chip { background:#f0f4f8; border:1px solid #dce6ef; border-radius:6px; padding:.6rem .9rem; display:flex; flex-direction:column; gap:.2rem; }
 .caso-chip .chip-label { font-size:.65rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#7a8fa6; }
 .caso-chip .chip-value { font-size:.85rem; font-weight:700; color:#2c3e50; }
@@ -81,10 +78,12 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .phase-body { padding:.85rem 1.1rem; font-size:.9rem; line-height:1.7; }
 .phase-body p { margin-bottom:.6rem; }
 .phase-body ul { padding-left:1.4rem; margin-bottom:.5rem; }
+.phase-body ol { padding-left:1.4rem; margin-bottom:.5rem; }
 .phase-body li { margin-bottom:.3rem; }
+.phase-body h3 { font-size:.9rem; font-weight:700; color:#2c3e50; margin:.75rem 0 .25rem; }
 .phase-body strong { color:#2c3e50; }
 .phase-body table { width:100%; border-collapse:collapse; margin:.5rem 0; font-size:.85rem; border:1px solid #dce6ef; border-radius:4px; overflow:hidden; }
-.phase-body thead th { background:#e8f0f8; padding:.4rem .7rem; text-align:left; font-size:.75rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; border-bottom:1px solid #dce6ef; }
+.phase-body thead th { background:#e8f0f8; padding:.4rem .7rem; text-align:left; font-size:.75rem; font-weight:700; text-transform:uppercase; border-bottom:1px solid #dce6ef; }
 .phase-body td { padding:.4rem .7rem; border-bottom:1px solid #eee; vertical-align:top; }
 .phase-body tbody tr:nth-child(even) { background:#f7fafd; }
 .phase-body code { font-family:var(--mono); font-size:.82em; background:#f8f8f8; color:#c0392b; padding:.1em .3em; border-radius:3px; border:1px solid #e1e4e5; }
@@ -92,7 +91,6 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .phase-body pre code { background:none; color:inherit; padding:0; border:none; font-size:.82rem; }
 .phase-body blockquote { border-left:4px solid #e6a817; background:#fff8e6; padding:.5rem .9rem; margin:.5rem 0; border-radius:0 4px 4px 0; font-size:.88rem; }
 .phase-body blockquote p { margin-bottom:0; }
-.callout { background:#fff8e6; border:1px solid #f6c74a; border-left:4px solid #e6a817; border-radius:0 6px 6px 0; padding:.7rem 1rem; margin:1rem 0; font-size:.88rem; }
 .ra-box { background:#f0faf4; border:1px solid #a9dfbf; border-left:4px solid #27ae60; border-radius:0 6px 6px 0; padding:.7rem 1rem; margin:0 0 1.25rem; font-size:.9rem; font-style:italic; color:#1a5e35; }
 .dataset-box { background:#f0f7ff; border:1px solid #b6d7f5; border-radius:8px; padding:1rem 1.2rem; margin:1rem 0; }
 .dataset-box .ds-title { font-weight:700; font-size:.9rem; color:#1a5276; margin-bottom:.5rem; }
@@ -105,16 +103,14 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   #menu-toggle { display:block; }
   .content-wrap { padding:1.5rem 1rem 3rem; }
 }
-  </style>
+</style>
 </head>
 <body>
 <header id="topbar">
-  <div class="topbar-left">
-    <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Menú">&#9776;</button>
-    <a href="../index.html" class="brand">
-      🐍 Seminario EDA <span class="sep">·</span> <span class="sub">Análisis Exploratorio de Datos 2026</span>
-    </a>
-  </div>
+  <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+  <a href="../index.html" class="brand">
+    🐍 Seminario EDA <span class="sep">·</span> <span class="sub">Análisis Exploratorio de Datos 2026</span>
+  </a>
 </header>
 <div id="layout">
   <nav id="sidebar"><div class="sb-header">Casos de Estudio</div><a href="../index.html" class="sb-index-link">← Inicio del curso</a><a href="index.html" class="sb-index-link active">📋 Todos los casos</a><div class="sb-week" style="margin-top:.4rem"><div class="sb-week-hdr"><span class="sb-week-label">Proyectos</span></div><ul><li class="sb-item"><a href="caso_01.html" class=""><span class="dnum">C01</span><span class="dtitle">Segmentación de Clientes — Retail</span></a></li>
@@ -129,28 +125,22 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 <li class="sb-item"><a href="caso_10.html" class=""><span class="dnum">C10</span><span class="dtitle">Tendencias Tecnológicas Stack Overflow</span></a></li></ul></div></nav>
   <main id="main">
     <div class="content-wrap"><div class="breadcrumb"><a href="../index.html">Inicio</a><span class="sep">›</span><span class="cur">Casos de estudio</span></div>
-
 <h1>📂 Casos de Estudio</h1>
 <h3 style="margin-top:.3rem;color:#666;font-weight:400">Proyectos del Seminario · Grupos de 3 estudiantes · Entrega 15 de mayo 2026</h3>
-
 <p style="margin-top:1.2rem;max-width:720px">
 Cada caso propone un problema analítico real organizado en <strong>5 fases pedagógicas progresivas</strong>:
 comprensión del dominio → exploración de datos → modelado → producto analítico → comunicación de hallazgos.
 El grupo elige <strong>un solo caso</strong> y lo desarrolla durante las 4 semanas del seminario.
 </p>
-
 <blockquote><p><strong>Flujo de trabajo:</strong> leer el caso completo antes de descargar datos &nbsp;·&nbsp;
 formular hipótesis en la Fase 1 antes de abrir archivos &nbsp;·&nbsp;
-comparar siempre ≥ 2 modelos con métricas apropiadas &nbsp;·&nbsp;
-entregar API + Dashboard funcionales en la Semana 4.</p></blockquote>
-
+comparar siempre ≥ 2 modelos con métricas apropiadas.</p></blockquote>
 <hr/>
 <h2>Selección de casos</h2>
 <table>
   <thead><tr><th>#</th><th>Título</th><th>Dominio</th><th>Técnica principal</th><th>Dataset</th></tr></thead>
   <tbody><tr><td style="font-weight:700;white-space:nowrap"><a href="caso_01.html">Caso 01</a></td><td><a href="caso_01.html">Segmentación de Clientes — Retail</a></td><td>Retail</td><td>Clustering K-Means / RFM</td><td style="font-size:.82rem;color:#666">~1 M transacciones · ~4 000 clientes</td></tr><tr><td style="font-weight:700;white-space:nowrap"><a href="caso_02.html">Caso 02</a></td><td><a href="caso_02.html">Sistema Bancario Ecuatoriano</a></td><td>Finanzas / Ecuador</td><td>EDA + Rankings</td><td style="font-size:.82rem;color:#666">24 bancos × múltiples KPIs</td></tr><tr><td style="font-weight:700;white-space:nowrap"><a href="caso_03.html">Caso 03</a></td><td><a href="caso_03.html">Scouting y Valoración FIFA 21</a></td><td>Deporte / Analytics</td><td>Regresión</td><td style="font-size:.82rem;color:#666">18 000 jugadores</td></tr><tr><td style="font-weight:700;white-space:nowrap"><a href="caso_04.html">Caso 04</a></td><td><a href="caso_04.html">Movilidad Urbana Nueva York</a></td><td>Transporte urbano</td><td>Análisis geoespacial</td><td style="font-size:.82rem;color:#666">~3 M viajes (Parquet)</td></tr><tr><td style="font-weight:700;white-space:nowrap"><a href="caso_05.html">Caso 05</a></td><td><a href="caso_05.html">Actividad Sísmica Ecuador</a></td><td>Geofísica / Ecuador</td><td>Series de tiempo + Geo</td><td style="font-size:.82rem;color:#666">~100 000 eventos (IG-EPN)</td></tr><tr><td style="font-weight:700;white-space:nowrap"><a href="caso_06.html">Caso 06</a></td><td><a href="caso_06.html">Reseñas Amazon — Predicción de Utilidad</a></td><td>E-Commerce / NLP</td><td>Clasificación + texto</td><td style="font-size:.82rem;color:#666">~100 000 reseñas</td></tr><tr><td style="font-weight:700;white-space:nowrap"><a href="caso_07.html">Caso 07</a></td><td><a href="caso_07.html">Predicción de Hits de Spotify</a></td><td>Música / Analytics</td><td>Clasificación binaria</td><td style="font-size:.82rem;color:#666">~230 000 canciones</td></tr><tr><td style="font-weight:700;white-space:nowrap"><a href="caso_08.html">Caso 08</a></td><td><a href="caso_08.html">Detección de Fraude Financiero</a></td><td>Fintech</td><td>Clasificación desbalanceada</td><td style="font-size:.82rem;color:#666">284 807 transacciones</td></tr><tr><td style="font-weight:700;white-space:nowrap"><a href="caso_09.html">Caso 09</a></td><td><a href="caso_09.html">E-Commerce OLIST Brasil</a></td><td>Logística / LatAm</td><td>Clasificación + multi-tabla</td><td style="font-size:.82rem;color:#666">100 000 pedidos · 8 tablas</td></tr><tr><td style="font-weight:700;white-space:nowrap"><a href="caso_10.html">Caso 10</a></td><td><a href="caso_10.html">Tendencias Tecnológicas Stack Overflow</a></td><td>Comunidad Tech</td><td>Series de tiempo + tags</td><td style="font-size:.82rem;color:#666">~3.6 M preguntas</td></tr></tbody>
 </table>
-
 <hr/>
 <h2>Calendario de entregas</h2>
 <table>
