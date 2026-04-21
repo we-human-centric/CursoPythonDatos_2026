@@ -753,19 +753,18 @@
           <strong>Duración:</strong> 2 horas sincrónicas
         </p>
         <hr />
-        <h2>Introducción</h2>
-        <p>El 80% del tiempo de un proyecto de datos se va en limpieza. Hoy aprendemos las herramientas que harán que
-          ese 80% sea rápido y reproducible. Al final de la clase empezamos a mover el código del notebook a un pipeline
-          en <code>src/pipeline.py</code>.</p>
+                <h2>Introducción</h2>
+        <p>Hoy aprendemos a transformar y limpiar datos: agrupar por categorías, manejar nulos, detectar duplicados y combinar múltiples tablas. Esto es el 80% del trabajo en análisis real de datos.</p>
         <h2>Objetivos de aprendizaje</h2>
         <p>Al finalizar esta sesión serás capaz de:</p>
         <ul>
-          <li>Detectar y tratar nulos, duplicados y outliers.</li>
-          <li>Convertir tipos y crear variables derivadas.</li>
-          <li>Agrupar, pivotar y unir tablas.</li>
-          <li>Iniciar un pipeline reproducible.</li>
+          <li><strong>Implementar</strong> operaciones de groupby() para resumir datos por categoría.</li>
+          <li><strong>Construir</strong> pipelines de limpieza: manejo de nulos, duplicados, tipos.</li>
+          <li><strong>Evaluar</strong> la calidad de datos usando funciones de validación.</li>
+          <li><strong>Analizar</strong> relaciones entre dos DataFrames con merge().</li>
         </ul>
-        <h2>Contenidos de la sesión</h2>
+        <hr />
+        <h2>Contenidos de la sesión</h2><h2>Contenidos de la sesión</h2>
         <h3>1. Valores nulos</h3>
         <p><code>df.isna().sum()</code>, <code>df.dropna()</code>, <code>df.fillna(valor)</code>. Criterio para decidir
           entre imputar vs. eliminar.</p>
