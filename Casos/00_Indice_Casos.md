@@ -1,6 +1,4 @@
 # 📂 Casos de Estudio — Seminario Análisis Exploratorio de Datos
-## UNIANDES · Carrera de Software · Abril–Mayo 2026
-**Docente:** Julian Maya · **Modalidad:** Grupos de 3 estudiantes · **Entrega final:** 15 de mayo de 2026
 
 ---
 
