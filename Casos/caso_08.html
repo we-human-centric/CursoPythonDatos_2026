@@ -21,19 +21,13 @@
 }
 html { font-size: 15px; scroll-behavior: smooth; }
 body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.75; -webkit-font-smoothing: antialiased; }
-
-/* TOPBAR */
 #topbar { position:fixed; top:0; left:0; right:0; height:var(--topbar-h); background:var(--navy); color:#fcfcfc; display:flex; align-items:center; justify-content:space-between; padding:0 1rem; z-index:200; box-shadow:0 2px 4px rgba(0,0,0,.3); }
 .topbar-left { display:flex; align-items:center; gap:.6rem; }
 .brand { color:#fff; text-decoration:none; font-size:.95rem; font-weight:700; display:flex; align-items:center; gap:.4rem; white-space:nowrap; }
 .brand span.sep { opacity:.3; font-weight:300; }
 .brand span.sub { font-weight:400; font-size:.8rem; opacity:.75; }
 #menu-toggle { display:none; background:none; border:none; color:#fff; font-size:1.15rem; cursor:pointer; padding:.3rem .4rem; line-height:1; }
-
-/* LAYOUT */
 #layout { display:flex; margin-top:var(--topbar-h); }
-
-/* SIDEBAR */
 #sidebar { width:var(--sidebar-w); flex-shrink:0; background:var(--sidebar-bg); border-right:1px solid var(--border); position:fixed; top:var(--topbar-h); bottom:0; overflow-y:auto; overflow-x:hidden; padding-bottom:2rem; font-size:.875rem; }
 #sidebar::-webkit-scrollbar { width:4px; }
 #sidebar::-webkit-scrollbar-thumb { background:#ccc; border-radius:4px; }
@@ -43,28 +37,20 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .sb-week { margin-top:.35rem; }
 .sb-week-hdr { display:flex; align-items:baseline; justify-content:space-between; padding:.5rem 1rem .25rem; }
 .sb-week-label { font-size:.7rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--blue); }
-.sb-week-sub { font-size:.68rem; color:var(--text-muted); }
 .sb-week ul { list-style:none; }
 .sb-item a { display:flex; align-items:baseline; gap:.4rem; padding:.32rem 1rem; color:#555; text-decoration:none; line-height:1.35; }
 .sb-item a:hover { background:var(--blue-light); color:var(--blue-dark); }
 .sb-item a.active { background:var(--blue-light); color:var(--blue-dark); font-weight:700; border-left:3px solid var(--blue); }
 .sb-item .dnum { font-size:.7rem; color:var(--text-muted); min-width:2.2rem; flex-shrink:0; font-family:var(--mono); }
 .sb-item .dtitle { font-size:.82rem; }
-.sb-badge { margin-left:auto; font-size:.6rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; background:var(--blue); color:#fff; padding:.1rem .35rem; border-radius:3px; }
-
-/* MAIN */
 #main { margin-left:var(--sidebar-w); flex:1; min-width:0; }
 .content-wrap { max-width:860px; padding:2rem 2.5rem 4rem; }
-
-/* BREADCRUMB */
 .breadcrumb { font-size:.8rem; color:var(--text-muted); margin-bottom:1.2rem; }
 .breadcrumb a { color:var(--blue); text-decoration:none; }
 .breadcrumb a:hover { text-decoration:underline; }
 .breadcrumb .sep { margin:0 .4rem; }
-
-/* TYPOGRAPHY */
-.content-wrap h1 { font-size:1.85rem; font-weight:700; color:#2c3e50; margin-bottom:.5rem; line-height:1.2; }
-.content-wrap h2 { font-size:1.25rem; font-weight:700; color:#2c3e50; margin:2rem 0 .75rem; padding-bottom:.4rem; border-bottom:1px solid #e8e8e8; }
+.content-wrap h1 { font-size:1.75rem; font-weight:700; color:#2c3e50; margin-bottom:.5rem; line-height:1.2; }
+.content-wrap h2 { font-size:1.2rem; font-weight:700; color:#2c3e50; margin:2rem 0 .75rem; padding-bottom:.4rem; border-bottom:1px solid #e8e8e8; }
 .content-wrap h3 { font-size:1rem; font-weight:700; color:#2c3e50; margin:1.25rem 0 .5rem; }
 .content-wrap p { margin-bottom:.9rem; }
 .content-wrap ul, .content-wrap ol { padding-left:1.6rem; margin-bottom:.9rem; }
@@ -72,121 +58,52 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 .content-wrap a { color:var(--blue); text-decoration:none; }
 .content-wrap a:hover { text-decoration:underline; }
 .content-wrap hr { border:none; border-top:1px solid var(--border); margin:1.75rem 0; }
-
-/* CODE */
 .content-wrap code { font-family:var(--mono); font-size:.875em; background:var(--code-bg); color:#c0392b; padding:.1em .3em; border-radius:3px; border:1px solid #e1e4e5; }
 .content-wrap pre { background:var(--code-bg); border:1px solid var(--border); border-left:4px solid var(--blue); border-radius:var(--radius); padding:1rem 1.1rem; overflow-x:auto; margin:1rem 0; line-height:1.6; }
 .content-wrap pre code { background:none; color:inherit; padding:0; border:none; font-size:.875rem; }
-
-/* TABLES */
 .content-wrap table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:.9rem; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
 .content-wrap thead th { background:#f0f0f0; color:#404040; padding:.55rem .9rem; text-align:left; font-size:.8rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; border-bottom:2px solid var(--border); }
 .content-wrap tbody tr:nth-child(even) { background:#f9f9f9; }
 .content-wrap tbody tr:hover { background:#eaf5fb; }
 .content-wrap td { padding:.5rem .9rem; border-bottom:1px solid #eee; vertical-align:top; }
-
-/* BLOCKQUOTE */
 .content-wrap blockquote { border-left:4px solid var(--blue); background:#f4f8fb; padding:.6rem 1rem; margin:1rem 0; border-radius:0 var(--radius) var(--radius) 0; color:#2c3e50; }
 .content-wrap blockquote p { margin-bottom:0; }
-
-/* ── CASO-SPECIFIC COMPONENTS ── */
-
-/* Ficha del caso (header card) */
-.caso-ficha {
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
-  gap:.75rem; margin:1.25rem 0 1.75rem;
-}
-.caso-chip {
-  background:#f0f4f8; border:1px solid #dce6ef; border-radius:6px;
-  padding:.6rem .9rem; display:flex; flex-direction:column; gap:.2rem;
-}
+/* Caso components */
+.caso-ficha { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:.75rem; margin:1rem 0 1.75rem; }
+.caso-chip { background:#f0f4f8; border:1px solid #dce6ef; border-radius:6px; padding:.6rem .9rem; display:flex; flex-direction:column; gap:.2rem; }
 .caso-chip .chip-label { font-size:.65rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#7a8fa6; }
 .caso-chip .chip-value { font-size:.85rem; font-weight:700; color:#2c3e50; }
-
-/* Difficulty badge */
-.badge-difficulty {
-  display:inline-flex; align-items:center; gap:.35rem;
-  font-size:.75rem; font-weight:700; letter-spacing:.05em;
-  padding:.25rem .65rem; border-radius:20px;
-  background:#fff7e6; color:#b7791f; border:1px solid #f6c74a;
-  margin-bottom:1rem;
-}
-
-/* Phase cards */
 .phase-list { display:flex; flex-direction:column; gap:1.1rem; margin:1rem 0; }
-.phase-card {
-  border:1px solid #dce6ef; border-radius:8px;
-  border-left:5px solid var(--blue); overflow:hidden;
-}
-.phase-card-header {
-  display:flex; align-items:center; gap:.75rem;
-  background:#f7fafd; padding:.7rem 1.1rem;
-  border-bottom:1px solid #dce6ef;
-}
-.phase-num {
-  width:1.8rem; height:1.8rem; border-radius:50%;
-  background:var(--blue); color:#fff;
-  font-size:.8rem; font-weight:700;
-  display:flex; align-items:center; justify-content:center;
-  flex-shrink:0;
-}
+.phase-card { border:1px solid #dce6ef; border-radius:8px; border-left:5px solid var(--blue); overflow:hidden; }
+.phase-card-header { display:flex; align-items:center; gap:.75rem; background:#f7fafd; padding:.7rem 1.1rem; border-bottom:1px solid #dce6ef; }
+.phase-num { width:1.8rem; height:1.8rem; border-radius:50%; background:var(--blue); color:#fff; font-size:.8rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 .phase-title { font-weight:700; font-size:.95rem; color:#2c3e50; }
 .phase-body { padding:.85rem 1.1rem; font-size:.9rem; line-height:1.7; }
+.phase-body p { margin-bottom:.6rem; }
 .phase-body ul { padding-left:1.4rem; margin-bottom:.5rem; }
 .phase-body li { margin-bottom:.3rem; }
-.phase-body p { margin-bottom:.6rem; }
 .phase-body strong { color:#2c3e50; }
+.phase-body table { width:100%; border-collapse:collapse; margin:.5rem 0; font-size:.85rem; border:1px solid #dce6ef; border-radius:4px; overflow:hidden; }
+.phase-body thead th { background:#e8f0f8; padding:.4rem .7rem; text-align:left; font-size:.75rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; border-bottom:1px solid #dce6ef; }
+.phase-body td { padding:.4rem .7rem; border-bottom:1px solid #eee; vertical-align:top; }
+.phase-body tbody tr:nth-child(even) { background:#f7fafd; }
 .phase-body code { font-family:var(--mono); font-size:.82em; background:#f8f8f8; color:#c0392b; padding:.1em .3em; border-radius:3px; border:1px solid #e1e4e5; }
-.phase-body pre { background:#f8f8f8; border:1px solid #ddd; border-left:4px solid var(--blue); border-radius:4px; padding:.8rem 1rem; overflow-x:auto; margin:.5rem 0; line-height:1.6; }
+.phase-body pre { background:#f8f8f8; border:1px solid #ddd; border-left:4px solid var(--blue); border-radius:4px; padding:.8rem 1rem; overflow-x:auto; margin:.6rem 0; line-height:1.6; }
 .phase-body pre code { background:none; color:inherit; padding:0; border:none; font-size:.82rem; }
-
-/* Callout */
-.callout {
-  background:#fff8e6; border:1px solid #f6c74a; border-left:4px solid #e6a817;
-  border-radius:0 6px 6px 0; padding:.7rem 1rem; margin:1rem 0; font-size:.88rem;
-}
-.callout strong { color:#92600a; }
-
-/* API + Dashboard sub-sections */
-.api-block, .dash-block {
-  background:#f9fbfe; border:1px solid #d5e4f0; border-radius:6px;
-  padding:.75rem 1rem; margin:.5rem 0;
-}
-.api-block .block-label, .dash-block .block-label {
-  font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--blue-dark); margin-bottom:.4rem;
-}
-
-/* Dataset box */
-.dataset-box {
-  background:#f0f7ff; border:1px solid #b6d7f5; border-radius:8px;
-  padding:1rem 1.2rem; margin:1rem 0;
-}
+.phase-body blockquote { border-left:4px solid #e6a817; background:#fff8e6; padding:.5rem .9rem; margin:.5rem 0; border-radius:0 4px 4px 0; font-size:.88rem; }
+.phase-body blockquote p { margin-bottom:0; }
+.callout { background:#fff8e6; border:1px solid #f6c74a; border-left:4px solid #e6a817; border-radius:0 6px 6px 0; padding:.7rem 1rem; margin:1rem 0; font-size:.88rem; }
+.ra-box { background:#f0faf4; border:1px solid #a9dfbf; border-left:4px solid #27ae60; border-radius:0 6px 6px 0; padding:.7rem 1rem; margin:0 0 1.25rem; font-size:.9rem; font-style:italic; color:#1a5e35; }
+.dataset-box { background:#f0f7ff; border:1px solid #b6d7f5; border-radius:8px; padding:1rem 1.2rem; margin:1rem 0; }
 .dataset-box .ds-title { font-weight:700; font-size:.9rem; color:#1a5276; margin-bottom:.5rem; }
-.dataset-box a { color:var(--blue); }
-
-/* Result of learning */
-.ra-box {
-  background:#f0faf4; border:1px solid #a9dfbf; border-left:4px solid #27ae60;
-  border-radius:0 6px 6px 0; padding:.7rem 1rem; margin:0 0 1.25rem; font-size:.9rem;
-  font-style:italic; color:#1a5e35;
-}
-
-/* FOOTER */
 #footer { margin-left:var(--sidebar-w); background:#f5f5f5; border-top:1px solid #ddd; padding:.75rem 2rem; font-size:.78rem; color:#888; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
 #footer a { color:var(--blue); text-decoration:none; }
-
-/* RESPONSIVE */
 @media (max-width:768px) {
   #sidebar { position:fixed; left:0; top:var(--topbar-h); height:calc(100vh - var(--topbar-h)); transform:translateX(-100%); transition:transform .2s ease; box-shadow:2px 0 8px rgba(0,0,0,.15); z-index:150; }
   #sidebar.open { transform:translateX(0); }
   #main, #footer { margin-left:0; }
   #menu-toggle { display:block; }
   .content-wrap { padding:1.5rem 1rem 3rem; }
-}
-@media print {
-  #topbar, #sidebar, #footer { display:none !important; }
-  #main { margin-left:0; }
 }
   </style>
 </head>
@@ -200,14 +117,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   </div>
 </header>
 <div id="layout">
-  <nav id="sidebar">
-        <div class="sb-header">Casos de Estudio</div>
-<a href="../index.html" class="sb-index-link">← Inicio del curso</a>
-<a href="index.html" class="sb-index-link ">📋 Todos los casos</a>
-<div class="sb-week" style="margin-top:.4rem">
-  <div class="sb-week-hdr"><span class="sb-week-label">Proyectos</span></div>
-  <ul>
-<li class="sb-item"><a href="caso_01.html" class=""><span class="dnum">C01</span><span class="dtitle">Segmentación de Clientes — Retail</span></a></li>
+  <nav id="sidebar"><div class="sb-header">Casos de Estudio</div><a href="../index.html" class="sb-index-link">← Inicio del curso</a><a href="index.html" class="sb-index-link ">📋 Todos los casos</a><div class="sb-week" style="margin-top:.4rem"><div class="sb-week-hdr"><span class="sb-week-label">Proyectos</span></div><ul><li class="sb-item"><a href="caso_01.html" class=""><span class="dnum">C01</span><span class="dtitle">Segmentación de Clientes — Retail</span></a></li>
 <li class="sb-item"><a href="caso_02.html" class=""><span class="dnum">C02</span><span class="dtitle">Sistema Bancario Ecuatoriano</span></a></li>
 <li class="sb-item"><a href="caso_03.html" class=""><span class="dnum">C03</span><span class="dtitle">Scouting y Valoración FIFA 21</span></a></li>
 <li class="sb-item"><a href="caso_04.html" class=""><span class="dnum">C04</span><span class="dtitle">Movilidad Urbana Nueva York</span></a></li>
@@ -216,17 +126,11 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
 <li class="sb-item"><a href="caso_07.html" class=""><span class="dnum">C07</span><span class="dtitle">Predicción de Hits de Spotify</span></a></li>
 <li class="sb-item"><a href="caso_08.html" class="active"><span class="dnum">C08</span><span class="dtitle">Detección de Fraude Financiero</span></a></li>
 <li class="sb-item"><a href="caso_09.html" class=""><span class="dnum">C09</span><span class="dtitle">E-Commerce OLIST Brasil</span></a></li>
-<li class="sb-item"><a href="caso_10.html" class=""><span class="dnum">C10</span><span class="dtitle">Tendencias Tecnológicas Stack Overflow</span></a></li>
-  </ul>
-</div>
-  </nav>
+<li class="sb-item"><a href="caso_10.html" class=""><span class="dnum">C10</span><span class="dtitle">Tendencias Tecnológicas Stack Overflow</span></a></li></ul></div></nav>
   <main id="main">
-    <div class="content-wrap">
-      <div class="breadcrumb"><a href="../index.html">Inicio</a><span class="sep">›</span><a href="index.html">Casos de estudio</a><span class="sep">›</span><span class="cur">Caso 08</span></div>
+    <div class="content-wrap"><div class="breadcrumb"><a href="../index.html">Inicio</a><span class="sep">›</span><a href="index.html">Casos de estudio</a><span class="sep">›</span><span class="cur">Caso 08</span></div>
 
 <h1>Caso 08 · Detección de Fraude Financiero</h1>
-
-<div class="badge-difficulty">Medio 🟡 · Complejidad estimada</div>
 <div class="caso-ficha">
   <div class="caso-chip"><span class="chip-label">Dominio</span><span class="chip-value">Fintech</span></div>
   <div class="caso-chip"><span class="chip-label">Técnica principal</span><span class="chip-value">Clasificación desbalanceada</span></div>
@@ -234,39 +138,107 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   <div class="caso-chip"><span class="chip-label">Modalidad</span><span class="chip-value">Grupos de 3 · Entrega 15 may</span></div>
 </div>
 
-<hr id="contexto" />
+<hr id="contexto"/>
 <h2>Contexto del problema</h2>
+<p>El fraude con tarjetas de crédito genera pérdidas globales superiores a <strong>USD 30,000 millones anuales</strong>. El dataset del Machine Learning Group de la Université Libre de Bruxelles contiene <strong>284,807 transacciones reales</strong> de dos días en Europa, de las cuales solo <strong>492 son fraudulentas (0.17 %)</strong>.</p>
+<p>Por razones de confidencialidad, las variables originales fueron transformadas mediante PCA, resultando en 28 componentes anónimos (V1–V28) más tres columnas interpretables:</p>
+<ul>
+<li><code>Time</code> — segundos desde la primera transacción del dataset</li>
+<li><code>Amount</code> — monto de la transacción en euros</li>
+<li><code>Class</code> — etiqueta: 0 = legítima, 1 = fraude</li>
+</ul>
+<p><strong>Este es el caso más extremo de desbalance de clases de la matriz.</strong> Un modelo que predice &quot;legítima&quot; para todas las transacciones obtiene 99.83 % de exactitud pero detecta <strong>cero fraudes</strong>. La decisión estratégica central es el ajuste del umbral de decisión: capturar más fraudes siempre implica más falsas alarmas, y ese equilibrio debe comunicarse a la gerencia como una decisión de negocio, no técnica.</p>
+<p>---</p>
 
-
-<hr id="objetivo" />
+<hr id="objetivo"/>
 <h2>Objetivo del proyecto</h2>
+<p>Construir un sistema de detección de fraude que maneje el desbalance extremo con rigor técnico, compare múltiples estrategias de tratamiento, y <strong>comunique visualmente la compensación Precisión-Recall</strong> para que la gerencia tome la decisión de umbral con criterio de negocio.</p>
+<p>---</p>
 
-
-<hr id="fases" />
+<hr id="fases"/>
 <h2>Actividades del proyecto</h2>
-
+<div class="ra-box">🎓 <strong>Resultado de aprendizaje:</strong> el estudiante maneja el desbalance extremo de clases con múltiples estrategias, elige y fundamenta métricas de evaluación apropiadas, y construye una herramienta de apoyo a la decisión gerencial.</div>
 <div class="phase-list">
+<div class="phase-card">
+  <div class="phase-card-header">
+    <div class="phase-num">1</div>
+    <span class="phase-title">🔍 Comprensión del dominio</span>
+  </div>
+  <div class="phase-body"><p>Investigar el impacto económico del fraude financiero. Explicar por qué la exactitud (accuracy) es una métrica engañosa en este problema. Analizar el <strong>costo asimétrico de los dos tipos de error</strong>: no detectar un fraude (falso negativo) vs. bloquear una transacción legítima (falso positivo). Definir qué métrica(s) debería optimizar este sistema y por qué.</p></div>
+</div>
+<div class="phase-card">
+  <div class="phase-card-header">
+    <div class="phase-num">2</div>
+    <span class="phase-title">🗂️ Preparación y exploración de datos</span>
+  </div>
+  <div class="phase-body"><ul>
+<li>Cuantificar y documentar el desbalance de clases con gráficos claros</li>
+<li>Analizar si <code>Amount</code> y <code>Time</code> difieren estadísticamente entre fraudes y transacciones legítimas (boxplots)</li>
+<li>Diseñar el esquema de validación cruzada estratificada para evitar fuga de información con datos desbalanceados</li>
+</ul></div>
+</div>
+<div class="phase-card">
+  <div class="phase-card-header">
+    <div class="phase-num">3</div>
+    <span class="phase-title">🧪 Modelado</span>
+  </div>
+  <div class="phase-body"><p>Comparar al menos <strong>4 combinaciones</strong>: 2 estrategias de manejo del desbalance × 2 clasificadores:</p>
+<table><thead><tr><th>Estrategia</th><th>Descripción</th></tr></thead><tbody><tr><td>A — Pesos de clase</td><td><code>class_weight=&#x27;balanced&#x27;</code> en el modelo — más simple, sin modificar los datos</td></tr><tr><td>B — SMOTE</td><td>Sobremuestreo sintético del training set — genera nuevos ejemplos de fraude</td></tr></tbody></table>
+<p>Clasificadores: Logistic Regression (baseline) y Random Forest (modelo principal).</p>
+<p>Evaluar todas las combinaciones con Precisión, Recall, F1 y ROC-AUC. Seleccionar la mejor y analizar el efecto de mover el umbral de decisión sobre el equilibrio entre capturar fraudes y generar falsas alarmas.</p></div>
+</div>
+<div class="phase-card">
+  <div class="phase-card-header">
+    <div class="phase-num">4</div>
+    <span class="phase-title">🚀 Producto analítico</span>
+  </div>
+  <div class="phase-body"><p><strong>Pipeline técnico:</strong></p>
+<ul>
+<li>Comparar <code>class_weight=&#x27;balanced&#x27;</code> vs. SMOTE sobre el training set únicamente (nunca sobre test)</li>
+<li>Evaluar con <code>StratifiedKFold</code> para preservar la proporción de fraudes en cada fold</li>
+<li>Analizar la curva Precision-Recall (más informativa que ROC para desbalance extremo)</li>
+<li>Guardar el mejor modelo para el servicio de inferencia</li>
+</ul>
+<p><strong>API (FastAPI):</strong></p>
+<ul>
+<li><code>POST /transactions/evaluate</code> — recibe atributos (V1–V28 + Amount); devuelve clasificación y probabilidad de fraude</li>
+<li><code>GET /transactions/threshold?value=0.3</code> — métricas proyectadas (Precisión, Recall estimados) para un umbral dado</li>
+</ul>
+<p><strong>Dashboard (Streamlit):</strong></p>
+<ol>
+<li>Simulación de flujo de transacciones recientes con indicadores verde/rojo</li>
+<li>Matriz de confusión visual + curva Precisión-Recall del modelo seleccionado en el test set</li>
+<li><strong>Slider interactivo de umbral de decisión</strong> que actualiza en tiempo real: Precisión, Recall y número proyectado de fraudes capturados y falsas alarmas por día — la vista más valiosa para la toma de decisión gerencial</li>
+</ol></div>
+</div>
+<div class="phase-card">
+  <div class="phase-card-header">
+    <div class="phase-num">5</div>
+    <span class="phase-title">💬 Interpretación y comunicación</span>
+  </div>
+  <div class="phase-body"><p>¿Qué umbral recomendarían y por qué? ¿Cuál es el costo de equivocarse en cada dirección? Presentar a la gerencia la decisión de umbral como una <strong>compensación explícita entre dos riesgos de negocio</strong>, no como un problema técnico.</p>
+<p>---</p></div>
+</div>
 
 </div>
 
-<hr id="dataset" />
+<hr id="dataset"/>
 <h2>Dataset y recursos</h2>
 <div class="dataset-box">
   <div class="ds-title">📦 Fuentes de datos</div>
-  <p>Ver el archivo del caso para el enlace de descarga.</p>
-  
+  <p>🔗 <a href="https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud" target="_blank"><strong>Credit Card Fraud Detection — ULB / Kaggle</strong></a></p>
+  <p style="margin-top:.7rem;font-weight:700;font-size:.85rem;color:#1a5276">Lecturas recomendadas:</p><ul><li>Métricas para clasificación desbalanceada: Precision, Recall, F1 y ROC-AUC</li><li>Curvas ROC y Precision-Recall: lectura e interpretación comparada</li><li>SMOTE: sobremuestreo sintético con imbalanced-learn</li><li>Ajuste de umbral de decisión en clasificadores probabilísticos</li><li>Validación cruzada estratificada (StratifiedKFold) en datos desbalanceados</li></ul>
 </div>
 
-<hr id="rubrica" />
+<hr id="rubrica"/>
 <h2>Rúbrica de evaluación</h2>
-
+<table><thead><tr><th>Entregable</th><th>Semana</th><th>Peso</th><th>Criterios clave</th></tr></thead><tbody><tr><td>Definición del problema</td><td>1</td><td>10 %</td><td>Claridad de la pregunta de negocio, historias de usuario, ficha del dataset</td></tr><tr><td>Pipeline de datos</td><td>2</td><td>20 %</td><td>Reproducibilidad, manejo del reto específico, validaciones documentadas</td></tr><tr><td>EDA + primer modelo</td><td>3</td><td>25 %</td><td>Profundidad del análisis, rigor estadístico, pertinencia del modelo y métricas</td></tr><tr><td>Producto analítico completo</td><td>4</td><td>30 %</td><td>Comparación de ≥ 2 modelos, API y dashboard funcionales, documentación</td></tr><tr><td>Defensa oral y trabajo en equipo</td><td>4</td><td>15 %</td><td>Dominio técnico, claridad, manejo de preguntas, colaboración</td></tr></tbody></table>
 <blockquote><p><strong>Modalidad:</strong> grupos de 3 estudiantes &nbsp;·&nbsp; <strong>Entrega final:</strong> viernes 15 de mayo de 2026</p></blockquote>
-
-    </div>
+</div>
   </main>
 </div>
 <footer id="footer">
-  <span>Seminario de Análisis Exploratorio de Datos &nbsp;·&nbsp; Carrera de Software &nbsp;·&nbsp; Abril–Mayo 2026</span>
+  <span>Seminario de Análisis Exploratorio de Datos · Carrera de Software · Abril–Mayo 2026</span>
   <span><a href="https://github.com/we-human-centric/CursoPythonDatos_2026" target="_blank">github.com/we-human-centric/CursoPythonDatos_2026</a></span>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
