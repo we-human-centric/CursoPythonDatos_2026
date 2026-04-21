@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,853 +9,130 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
   <style>
-    /* ── RESET & VARIABLES ── */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    :root {
-      --sidebar-w: 270px;
-      --topbar-h: 50px;
-      --blue: #2980b9;
-      --blue-dark: #2472a4;
-      --blue-light: #e7f2fa;
-      --navy: #232936;
-      --text: #404040;
-      --text-muted: #888;
-      --border: #ddd;
-      --sidebar-bg: #f8f8f8;
-      --bg: #ffffff;
-      --code-bg: #f8f8f8;
-      --font: 'Lato', 'Helvetica Neue', Arial, sans-serif;
-      --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-      --radius: 4px;
-    }
-
-    html {
-      font-size: 15px;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── TOPBAR ── */
-    #topbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: var(--topbar-h);
-      background: var(--navy);
-      color: #fcfcfc;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 1rem;
-      z-index: 200;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
-    }
-
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-    }
-
-    .topbar-right {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-    }
-
-    .brand {
-      color: #fff;
-      text-decoration: none;
-      font-size: .95rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-      white-space: nowrap;
-    }
-
-    .brand span.sep {
-      opacity: .3;
-      font-weight: 300;
-    }
-
-    .brand span.sub {
-      font-weight: 400;
-      font-size: .8rem;
-      opacity: .75;
-    }
-
-    .week-chip {
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      padding: .18rem .55rem;
-      background: rgba(255, 255, 255, .15);
-      border-radius: 3px;
-      color: #fff;
-    }
-
-    #menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.15rem;
-      cursor: pointer;
-      padding: .3rem .4rem;
-      line-height: 1;
-    }
-
-    /* ── LAYOUT ── */
-    #layout {
-      display: flex;
-      margin-top: var(--topbar-h);
-    }
-
-    /* ── SIDEBAR ── */
-    #sidebar {
-      width: var(--sidebar-w);
-      flex-shrink: 0;
-      background: var(--sidebar-bg);
-      border-right: 1px solid var(--border);
-      position: fixed;
-      top: var(--topbar-h);
-      bottom: 0;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding-bottom: 2rem;
-      font-size: .875rem;
-    }
-
-    #sidebar::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    #sidebar::-webkit-scrollbar-thumb {
-      background: #ccc;
-      border-radius: 4px;
-    }
-
-    .sb-header {
-      padding: .9rem 1rem .4rem;
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .09em;
-      text-transform: uppercase;
-      color: #aaa;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: .25rem;
-    }
-
-    .sb-index-link {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      padding: .45rem 1rem;
-      color: var(--text);
-      text-decoration: none;
-      border-left: 3px solid transparent;
-      transition: background .12s, color .12s;
-    }
-
-    .sb-index-link:hover {
-      background: var(--blue-light);
-      color: var(--blue-dark);
-    }
-
-    .sb-index-link.active {
-      border-left-color: var(--blue);
-      background: var(--blue-light);
-      color: var(--blue-dark);
-      font-weight: 700;
-    }
-
-    .sb-week {
-      margin-top: .35rem;
-    }
-
-    .sb-week-hdr {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      padding: .5rem 1rem .25rem;
-    }
-
-    .sb-week-label {
-      font-size: .7rem;
-      font-weight: 700;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-    }
-
-    .sb-week-sub {
-      font-size: .68rem;
-      color: var(--text-muted);
-    }
-
-    .sb-week ul {
-      list-style: none;
-    }
-
-    .sb-item a {
-      display: flex;
-      align-items: baseline;
-      gap: .45rem;
-      padding: .38rem 1rem .38rem 1.35rem;
-      color: #555;
-      text-decoration: none;
-      border-left: 3px solid transparent;
-      transition: background .1s, color .1s;
-      line-height: 1.4;
-    }
-
-    .sb-item a:hover {
-      background: var(--blue-light);
-      color: var(--blue-dark);
-    }
-
-    .sb-item.active a {
-      border-left-color: var(--blue);
-      background: var(--blue-light);
-      color: var(--blue-dark);
-      font-weight: 700;
-    }
-
-    .sb-item .dnum {
-      font-size: .7rem;
-      font-weight: 600;
-      min-width: 2.2rem;
-      color: #aaa;
-      flex-shrink: 0;
-    }
-
-    .sb-item.active .dnum {
-      color: var(--blue);
-    }
-
-    .sb-item .dtitle {
-      font-size: .83rem;
-      line-height: 1.35;
-    }
-
-    .sb-badge {
-      margin-left: auto;
-      font-size: .62rem;
-      font-weight: 700;
-      padding: .08rem .3rem;
-      border-radius: 2px;
-      background: #fef9c3;
-      color: #854d0e;
-      flex-shrink: 0;
-    }
-
-    /* ── MAIN CONTENT ── */
-    #main {
-      flex: 1;
-      margin-left: var(--sidebar-w);
-      min-width: 0;
-    }
-
-    .content-wrap {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 2rem 2.5rem 4rem;
-    }
-
-    /* ── BREADCRUMB ── */
-    .breadcrumb {
-      font-size: .8rem;
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: .3rem;
-      flex-wrap: wrap;
-      padding-bottom: .75rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .breadcrumb a {
-      color: var(--blue);
-      text-decoration: none;
-    }
-
-    .breadcrumb a:hover {
-      text-decoration: underline;
-    }
-
-    .breadcrumb .sep {
-      color: #ccc;
-    }
-
-    .breadcrumb .cur {
-      color: var(--text);
-    }
-
-    /* ── ACTION BAR ── */
-    .action-bar {
-      display: flex;
-      align-items: center;
-      gap: .75rem;
-      flex-wrap: wrap;
-      padding: .65rem .9rem;
-      background: #f0f8ff;
-      border: 1px solid #bee3f8;
-      border-radius: var(--radius);
-      margin-bottom: 1.5rem;
-      font-size: .8rem;
-      color: #2c5282;
-    }
-
-    .action-bar a {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .action-bar img {
-      height: 18px;
-    }
-
-    .action-label {
-      font-weight: 600;
-    }
-
-    /* ── TYPOGRAPHY ── */
-    .content-wrap h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #232936;
-      letter-spacing: -.02em;
-      line-height: 1.2;
-      margin: 0 0 .5rem;
-      padding-bottom: .6rem;
-      border-bottom: 2px solid #232936;
-    }
-
-    .content-wrap h2 {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #232936;
-      margin: 2rem 0 .5rem;
-      padding-bottom: .35rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .content-wrap h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #232936;
-      margin: 1.5rem 0 .4rem;
-    }
-
-    .content-wrap h4 {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--text);
-      margin: 1.2rem 0 .3rem;
-    }
-
-    .content-wrap p {
-      margin-bottom: .85rem;
-    }
-
-    .content-wrap a {
-      color: var(--blue);
-      text-decoration: none;
-    }
-
-    .content-wrap a:hover {
-      text-decoration: underline;
-      color: var(--blue-dark);
-    }
-
-    .content-wrap strong {
-      color: #333;
-    }
-
-    .content-wrap em {
-      font-style: italic;
-    }
-
-    .content-wrap ul,
-    .content-wrap ol {
-      padding-left: 1.5rem;
-      margin-bottom: .9rem;
-    }
-
-    .content-wrap li {
-      margin-bottom: .25rem;
-    }
-
-    .content-wrap li>ul,
-    .content-wrap li>ol {
-      margin-top: .25rem;
-      margin-bottom: .25rem;
-    }
-
-    /* ── CODE ── */
-    .content-wrap code {
-      font-family: var(--mono);
-      font-size: .875em;
-      background: var(--code-bg);
-      color: #c0392b;
-      padding: .1em .3em;
-      border-radius: 3px;
-      border: 1px solid #e1e4e5;
-    }
-
-    .content-wrap pre {
-      background: var(--code-bg);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--blue);
-      border-radius: var(--radius);
-      padding: 1rem 1.1rem;
-      overflow-x: auto;
-      margin: 1rem 0;
-      line-height: 1.6;
-    }
-
-    .content-wrap pre code {
-      background: none;
-      color: inherit;
-      padding: 0;
-      border: none;
-      font-size: .875rem;
-    }
-
-    /* ── TABLES ── */
-    .content-wrap table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-      font-size: .9rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .content-wrap thead th {
-      background: #f0f0f0;
-      color: #404040;
-      padding: .55rem .9rem;
-      text-align: left;
-      font-size: .8rem;
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      border-bottom: 2px solid var(--border);
-    }
-
-    .content-wrap tbody tr:nth-child(even) {
-      background: #f9f9f9;
-    }
-
-    .content-wrap tbody tr:hover {
-      background: #eaf5fb;
-    }
-
-    .content-wrap td {
-      padding: .5rem .9rem;
-      border-bottom: 1px solid #eee;
-      vertical-align: top;
-    }
-
-    /* ── BLOCKQUOTE ── */
-    .content-wrap blockquote {
-      border-left: 4px solid var(--blue);
-      background: #f4f8fb;
-      padding: .6rem 1rem;
-      margin: 1rem 0;
-      border-radius: 0 var(--radius) var(--radius) 0;
-      color: #2c3e50;
-    }
-
-    .content-wrap blockquote p {
-      margin-bottom: 0;
-    }
-
-    /* ── HR ── */
-    .content-wrap hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 1.75rem 0;
-    }
-
-    /* ── IMAGES ── */
-    .content-wrap img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .content-wrap img[src*="badge"] {
-      height: 18px;
-      vertical-align: middle;
-    }
-
-    /* ── PREV/NEXT ── */
-    .page-nav {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-top: 2.5rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .pn-btn {
-      display: flex;
-      flex-direction: column;
-      gap: .15rem;
-      padding: .65rem 1rem;
-      max-width: 46%;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      text-decoration: none;
-      color: var(--text);
-      transition: border-color .15s, background .15s;
-    }
-
-    .pn-btn:hover {
-      border-color: var(--blue);
-      background: var(--blue-light);
-      text-decoration: none;
-    }
-
-    .pn-btn.next {
-      text-align: right;
-      margin-left: auto;
-    }
-
-    .pn-label {
-      font-size: .7rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: .05em;
-    }
-
-    .pn-title {
-      font-size: .875rem;
-      font-weight: 600;
-      color: #232936;
-      line-height: 1.3;
-    }
-
-    .pn-btn.prev .pn-label::before {
-      content: '← ';
-    }
-
-    .pn-btn.next .pn-label::after {
-      content: ' →';
-    }
-
-    /* ── FOOTER ── */
-    #footer {
-      background: #f8f8f8;
-      border-top: 1px solid var(--border);
-      margin-left: var(--sidebar-w);
-      padding: 1rem 2rem;
-      font-size: .8rem;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    #footer a {
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-
-    #footer a:hover {
-      color: var(--blue);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 880px) {
-      :root {
-        --sidebar-w: 0px;
-      }
-
-      #sidebar {
-        width: 270px;
-        transform: translateX(-100%);
-        z-index: 150;
-        transition: transform .2s ease;
-        box-shadow: 2px 0 8px rgba(0, 0, 0, .15);
-      }
-
-      #sidebar.open {
-        transform: translateX(0);
-      }
-
-      #main,
-      #footer {
-        margin-left: 0;
-      }
-
-      #menu-toggle {
-        display: block;
-      }
-
-      .content-wrap {
-        padding: 1.5rem 1rem 3rem;
-      }
-    }
-
-    @media print {
-
-      #topbar,
-      #sidebar,
-      .action-bar,
-      .page-nav,
-      #footer {
-        display: none !important;
-      }
-
-      #main {
-        margin-left: 0;
-      }
-
-      .content-wrap {
-        max-width: 100%;
-        padding: 0;
-      }
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --sidebar-w: 270px; --topbar-h: 50px; --blue: #2980b9; --blue-dark: #2472a4; --blue-light: #e7f2fa; --navy: #232936; --text: #404040; --text-muted: #888; --border: #ddd; --sidebar-bg: #f8f8f8; --bg: #ffffff; --code-bg: #f8f8f8; --font: 'Lato', 'Helvetica Neue', Arial, sans-serif; --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; --radius: 4px; }
+    html { font-size: 15px; scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.75; -webkit-font-smoothing: antialiased; }
+    #topbar { position: fixed; top: 0; left: 0; right: 0; height: var(--topbar-h); background: var(--navy); color: #fcfcfc; display: flex; align-items: center; justify-content: space-between; padding: 0 1rem; z-index: 200; box-shadow: 0 2px 4px rgba(0, 0, 0, .3); }
+    .topbar-left, .topbar-right { display: flex; align-items: center; gap: .6rem; }
+    .brand { color: #fff; text-decoration: none; font-size: .95rem; font-weight: 700; display: flex; align-items: center; gap: .4rem; white-space: nowrap; }
+    .brand span.sep { opacity: .3; font-weight: 300; }
+    .brand span.sub { font-weight: 400; font-size: .8rem; opacity: .75; }
+    .week-chip { font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: .18rem .55rem; background: rgba(255, 255, 255, .15); border-radius: 3px; color: #fff; }
+    #menu-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.15rem; cursor: pointer; padding: .3rem .4rem; line-height: 1; }
+    #layout { display: flex; margin-top: var(--topbar-h); }
+    #sidebar { width: var(--sidebar-w); flex-shrink: 0; background: var(--sidebar-bg); border-right: 1px solid var(--border); position: fixed; top: var(--topbar-h); bottom: 0; overflow-y: auto; overflow-x: hidden; padding-bottom: 2rem; font-size: .875rem; }
+    #sidebar::-webkit-scrollbar { width: 4px; }
+    #sidebar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+    .sb-header { padding: .9rem 1rem .4rem; font-size: .7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #aaa; border-bottom: 1px solid var(--border); margin-bottom: .25rem; }
+    .sb-index-link { display: flex; align-items: center; gap: .5rem; padding: .45rem 1rem; color: var(--text); text-decoration: none; border-left: 3px solid transparent; transition: background .12s, color .12s; }
+    .sb-index-link:hover { background: var(--blue-light); color: var(--blue-dark); }
+    .sb-index-link.active { border-left-color: var(--blue); background: var(--blue-light); color: var(--blue-dark); font-weight: 700; }
+    .sb-week { margin-top: .35rem; }
+    .sb-week-hdr { display: flex; align-items: baseline; justify-content: space-between; padding: .5rem 1rem .25rem; }
+    #content-wrap { margin-left: var(--sidebar-w); padding: 2rem 3rem 4rem; max-width: 900px; }
+    h1, h2, h3 { margin-top: 2rem; margin-bottom: 1rem; color: var(--navy); }
+    h1 { font-size: 2.2rem; border-bottom: 3px solid var(--blue); padding-bottom: 0.5rem; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.2rem; }
+    p { margin-bottom: 1.2rem; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul, ol { margin-left: 1.5rem; margin-bottom: 1.2rem; }
+    li { margin-bottom: 0.5rem; }
+    code { background: var(--code-bg); padding: 0.2rem 0.5rem; border-radius: var(--radius); font-family: var(--mono); }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: var(--radius); overflow-x: auto; margin-bottom: 1.2rem; }
+    blockquote { border-left: 4px solid var(--blue); padding-left: 1rem; margin-left: 0; margin-bottom: 1.2rem; color: var(--text-muted); }
+    .content-intro { font-size: 1.05rem; line-height: 1.85; color: #2c3e50; margin-bottom: 2rem; }
   </style>
 </head>
-
 <body>
-
-  <header id="topbar">
+  <div id="topbar">
     <div class="topbar-left">
-      <button id="menu-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"
-        aria-label="Menú">&#9776;</button>
-      <a href="index.html" class="brand">
-        🐍 Seminario EDA <span class="sep">·</span> <span class="sub">Análisis Exploratorio de Datos 2026</span>
-      </a>
+      <a href="#" class="brand">Seminario EDA 2026 <span class="sep">—</span> <span class="sub">Python</span></a>
+      <span class="week-chip">Semana 2</span>
     </div>
     <div class="topbar-right">
-      <span class="week-chip">Semana 2 · 27 abr–5 may</span>
+      <button id="menu-toggle">☰</button>
     </div>
-  </header>
-
-  <div id="layout">
-    <nav id="sidebar">
-      <div class="sb-header">Contenidos</div>
-      <a href="../index.html" class="sb-index-link">📋 Índice del curso</a>
-      <div class="sb-week">
-        <div class="sb-week-hdr"><span class="sb-week-label">Semana 1</span><span
-            class="sb-week-sub">21–24 abr</span></div>
-        <ul>
-          <li class="sb-item"><a href="../Dia%2001%20-%202026-04-21%20-%20Kick-off%20del%20seminario/index.html"><span
-                class="dnum">Día 01</span><span class="dtitle">Kick-off</span></a></li>
-          <li class="sb-item"><a
-              href="../Dia%2002%20-%202026-04-22%20-%20Fundamentos%20de%20Python%20I/index.html"><span class="dnum">Día
-                02</span><span class="dtitle">Python I</span></a></li>
-          <li class="sb-item"><a
-              href="../Dia%2003%20-%202026-04-23%20-%20Fundamentos%20de%20Python%20II/index.html"><span class="dnum">Día
-                03</span><span class="dtitle">Python II</span></a></li>
-          <li class="sb-item"><a
-              href="../Dia%2004%20-%202026-04-24%20-%20Planteamiento%20del%20proyecto/index.html"><span class="dnum">Día
-                04</span><span class="dtitle">Proyecto</span><span class="sb-badge">S1</span></a></li>
-        </ul>
-      </div>
-      <div class="sb-week">
-        <div class="sb-week-hdr"><span class="sb-week-label">Semana 2</span><span
-            class="sb-week-sub">27 abr–5 may</span></div>
-        <ul>
-          <li class="sb-item"><a href="../Dia%2005%20-%202026-04-27%20-%20NumPy/index.html"><span class="dnum">Día
-                05</span><span class="dtitle">NumPy</span></a></li>
-          <li class="sb-item active"><a href="../Dia%2006%20-%202026-04-28%20-%20Pandas%20I/index.html"><span
-                class="dnum">Día 06</span><span class="dtitle">Pandas I</span></a></li>
-          <li class="sb-item"><a href="../Dia%2007%20-%202026-04-29%20-%20Pandas%20II/index.html"><span class="dnum">Día
-                07</span><span class="dtitle">Pandas II</span></a></li>
-          <li class="sb-item"><a
-              href="../Dia%2008%20-%202026-05-04%20-%20Estad%C3%ADstica%20descriptiva%20y%20visualizaci%C3%B3n%20inicial/index.html"><span
-                class="dnum">Día 08</span><span class="dtitle">Estadística</span></a></li>
-          <li class="sb-item"><a
-              href="../Dia%2009%20-%202026-05-05%20-%20SQL%20con%20Python%20-%20ENTREGA%20SEMANA%202/index.html"><span
-                class="dnum">Día 09</span><span class="dtitle">SQL</span><span class="sb-badge">S2</span></a></li>
-        </ul>
-      </div>
-      <div class="sb-week">
-        <div class="sb-week-hdr"><span class="sb-week-label">Semana 3</span><span
-            class="sb-week-sub">6–11 may</span></div>
-        <ul>
-          <li class="sb-item"><a href="../Dia%2010%20-%202026-05-06%20-%20Visualizaciones%20avanzadas/index.html"><span
-                class="dnum">Día 10</span><span class="dtitle">Visualizaciones</span></a></li>
-          <li class="sb-item"><a
-              href="../Dia%2011%20-%202026-05-07%20-%20Hip%C3%B3tesis%20y%20pruebas%20estad%C3%ADsticas/index.html"><span
-                class="dnum">Día 11</span><span class="dtitle">Hipótesis</span></a></li>
-          <li class="sb-item"><a
-              href="../Dia%2012%20-%202026-05-08%20-%20Correlaciones%2C%20regresiones%20e%20intro%20a%20scikit-learn/index.html"><span
-                class="dnum">Día 12</span><span class="dtitle">Regresiones</span></a></li>
-          <li class="sb-item"><a
-              href="../Dia%2013%20-%202026-05-11%20-%20M%C3%A9tricas%20y%20comparaci%C3%B3n%20de%20modelos%20-%20ENTREGA%20SEMANA%203/index.html"><span
-                class="dnum">Día 13</span><span class="dtitle">Métricas</span><span class="sb-badge">S3</span></a></li>
-        </ul>
-      </div>
-      <div class="sb-week">
-        <div class="sb-week-hdr"><span class="sb-week-label">Semana 4</span><span
-            class="sb-week-sub">12–15 may</span></div>
-        <ul>
-          <li class="sb-item"><a href="../Dia%2014%20-%202026-05-12%20-%20Dashboards%20con%20Streamlit/index.html"><span
-                class="dnum">Día 14</span><span class="dtitle">Streamlit</span></a></li>
-          <li class="sb-item"><a href="../Dia%2015%20-%202026-05-13%20-%20APIs%20con%20FastAPI/index.html"><span
-                class="dnum">Día 15</span><span class="dtitle">FastAPI</span></a></li>
-          <li class="sb-item"><a
-              href="../Dia%2016%20-%202026-05-14%20-%20Buenas%20pr%C3%A1cticas%20y%20portafolio/index.html"><span
-                class="dnum">Día 16</span><span class="dtitle">Buenas prácticas</span></a></li>
-          <li class="sb-item"><a href="../Dia%2017%20-%202026-05-15%20-%20Presentaciones%20finales/index.html"><span
-                class="dnum">Día 17</span><span class="dtitle">Defensa</span><span class="sb-badge">FINAL</span></a>
-          </li>
-        </ul>
-      </div>
-
-    </nav>
-    <main id="main">
-      <div class="content-wrap">
-        <div class="breadcrumb"><a href="../index.html">Índice</a><span class="sep">/</span><span
-            style="color:#27ae60;font-weight:700">Semana 2</span><span class="sep">/</span><span class="cur">Día 06 ·
-            Pandas I – DataFrames y selección</span></div>
-        <div class="action-bar"><span class="action-label">Notebook:</span><a
-            href="https://colab.research.google.com/github/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2006%20-%202026-04-28%20-%20Pandas%20I/clase_06.ipynb"
-            target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg"
-              alt="Open In Colab"></a><a
-            href="https://nbviewer.org/github/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2006%20-%202026-04-28%20-%20Pandas%20I/clase_06.ipynb"
-            target="_blank"><img
-              src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg"
-              alt="nbviewer"></a><a
-            href="https://github.com/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2006%20-%202026-04-28%20-%20Pandas%20I/clase_06.ipynb"
-            target="_blank" style="color:#2980b9;font-size:.8rem">Ver en GitHub ↗</a></div>
-        <h1>Día 6 · Pandas I – Series, DataFrames y carga de datos</h1>
-        <p><strong>Fecha:</strong> Martes 28 de abril de 2026<br />
-          <strong>Módulo:</strong> Módulo 2 · Manipulación y análisis de datos<br />
-          <strong>Duración:</strong> 2 horas sincrónicas
-        </p>
-        <hr />
-                <h2>Introducción</h2>
-        <p>Pandas es la herramienta estándar para exploración y transformación de datos tabulares. En este taller cargarás datos reales, explorarás su estructura y aprenderás a hacer selecciones precisas con loc e iloc.</p>
-        <h2>Objetivos de aprendizaje</h2>
-        <p>Al finalizar esta sesión serás capaz de:</p>
-        <ul>
-          <li><strong>Construir</strong> DataFrames desde múltiples fuentes (CSV, dict, arrays).</li>
-          <li><strong>Analizar</strong> estructura con .info(), .describe(), .shape.</li>
-          <li><strong>Evaluar</strong> calidad de datos (nulos, tipos, outliers básicos).</li>
-          <li><strong>Implementar</strong> selecciones con loc e iloc para extraer subconjuntos.</li>
-          <li><strong>Comparar</strong> métodos de acceso y elegir el correcto según contexto.</li>
-        </ul>
-        <hr />
-        <h2>Contenidos de la sesión</h2><h2>Contenidos de la sesión</h2>
-        <h3>1. Series y DataFrames</h3>
-        <p>Una <code>Series</code> es una columna con índice; un <code>DataFrame</code> es una tabla 2D con índice de
-          filas y columnas.</p>
-        <h3>2. Carga de datos</h3>
-        <ul>
-          <li><code>pd.read_csv(path, sep, encoding, parse_dates, dtype, usecols, skiprows, nrows)</code>.</li>
-          <li><code>pd.read_excel(path, sheet_name, skiprows)</code>.</li>
-          <li><code>pd.read_json(path)</code>.</li>
-          <li><code>pd.read_sql(query, conn)</code>.</li>
-        </ul>
-        <h3>3. Exploración rápida</h3>
-        <p><code>df.head()</code>, <code>df.tail()</code>, <code>df.sample(5)</code>, <code>df.info()</code>,
-          <code>df.describe(include="all")</code>, <code>df.nunique()</code>, <code>df.columns</code>,
-          <code>df.index</code>.</p>
-        <h3>4. Selección: loc vs. iloc</h3>
-        <ul>
-          <li><code>df.loc[filas, columnas]</code>: por <strong>etiquetas</strong>.</li>
-          <li><code>df.iloc[filas, columnas]</code>: por <strong>posiciones enteras</strong>.
-            Ejemplo: <code>df.loc[df["ciudad"] == "Quito", ["precio", "area"]]</code>.</li>
-        </ul>
-        <h3>5. Filtrado por condiciones</h3>
-        <p>Máscaras booleanas y combinación con <code>&amp;</code>, <code>|</code>, <code>~</code>. Uso de
-          <code>.isin()</code> y <code>.between()</code>.</p>
-        <h3>6. Ordenamiento</h3>
-        <p><code>df.sort_values(by=["col"], ascending=False)</code> y <code>df.sort_index()</code>.</p>
-        <h2>Actividad práctica</h2>
-        <p>En <code>notebooks/04_pandas_carga.ipynb</code>:</p>
-        <ol>
-          <li>Carga el CSV <code>tips.csv</code> (provisto por el docente).</li>
-          <li>Muestra las propinas superiores al promedio.</li>
-          <li>Obtén los 5 registros con mayor propina relativa (<code>tip / total_bill</code>).</li>
-        </ol>
-        <h2>Trabajo en grupo sobre el caso asignado</h2>
-        <p>En su dataset del caso:</p>
-        <ul>
-          <li>Confirmen que los parámetros de <code>read_*</code> son los correctos (separador, encoding, fechas).</li>
-          <li>Completen la <strong>ficha de exploración</strong> con: n° de registros, tipos de dato, % de nulos por
-            columna y tres observaciones iniciales.</li>
-        </ul>
-        <h2>Entregable del día</h2>
-        <p>Notebook <code>04_pandas_carga.ipynb</code> + ficha de exploración en <code>docs/ficha_dataset.md</code>.</p>
-        <h2>Recursos recomendados</h2>
-        <ul>
-          <li>Pandas – 10 minutes to Pandas: https://pandas.pydata.org/docs/user_guide/10min.html</li>
-          <li>Comparación con SQL: https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_sql.html
-          </li>
-        </ul>
-        <h2>🎬 Video recomendado</h2>
-        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.2rem 0 1rem;">
-          <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-            src="https://www.youtube.com/embed/7WU3QixV_-s"
-            title="Cómo LEER un archivo CSV con Pandas"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-        </div>
-        <p><strong><a href="https://www.youtube.com/watch?v=7WU3QixV_-s" target="_blank" rel="noopener">Cómo LEER un archivo CSV con Pandas</a></strong> · Rafa Gonzalez Gouveia</p>
-        <p><em>csv() con datos reales. Canal con curso completo Data Science en español.</em></p>
-        <hr />
-        <hr />
-        <p><a href="../Dia%2005%20-%202026-04-27%20-%20NumPy/">← Día 05</a> · <a href="../README.md">🏠 Índice</a> · <a
-            href="../Dia%2007%20-%202026-04-29%20-%20Pandas%20II/">Día 07 →</a></p>
-        <blockquote>
-          <p><em>Seminario EDA · 2026 </em></p>
-        </blockquote>
-        <nav class="page-nav"><a href="../Dia%2005%20-%202026-04-27%20-%20NumPy/index.html" class="pn-btn prev"><span
-              class="pn-label">Anterior</span><span class="pn-title">Día 05 · NumPy – Arrays y operaciones
-              vectorizadas</span></a><a href="../Dia%2007%20-%202026-04-29%20-%20Pandas%20II/index.html"
-            class="pn-btn next"><span class="pn-label">Siguiente</span><span class="pn-title">Día 07 · Pandas II –
-              Agrupaciones y limpieza</span></a></nav>
-      </div>
-    </main>
   </div>
 
-  <footer id="footer">
-    <span>Seminario de Análisis Exploratorio de Datos </span>
-    <span><a href="https://github.com/we-human-centric/CursoPythonDatos_2026"
-        target="_blank">github.com/we-human-centric/CursoPythonDatos_2026</a></span>
-  </footer>
+  <div id="layout">
+    <div id="sidebar">
+      <div class="sb-header">Navegación</div>
+      <a href="#" class="sb-index-link">Día 5 · NumPy</a>
+      <a href="#" class="sb-index-link active">Día 6 · Pandas I</a>
+      <a href="#" class="sb-index-link">Día 7 · Pandas II</a>
+      <a href="#" class="sb-index-link">Día 8 · Estadística</a>
+      <a href="#" class="sb-index-link">Día 9 · SQL</a>
+    </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <div id="content-wrap">
+      <h1>Día 6 · Pandas I — DataFrames y selección</h1>
+
+      <div class="content-intro">
+        <p>
+          Pandas es la herramienta que van a usar en serio. Si Excel fuera código, sería esto — pero más honesto.
+          Hoy aprendes a cargar datos, explorarlos rápidamente, y hacer selecciones. Todo con DataFrames,
+          que es como una tabla con superpoderes.
+        </p>
+      </div>
+
+      <h2>Contenidos de la sesión</h2>
+      <p>Hoy cubrimos:</p>
+      <ul>
+        <li><strong>DataFrames:</strong> estructura tabular con tipos heterogéneos y nulos</li>
+        <li><strong>Exploración rápida:</strong> .shape, .info(), .describe()</li>
+        <li><strong>Selección de datos:</strong> loc (etiquetas) vs. iloc (posiciones)</li>
+        <li><strong>Indexación booleana:</strong> filtrar filas con condiciones</li>
+        <li><strong>Tablas cruzadas:</strong> crosstab() para ver patrones entre dos variables</li>
+      </ul>
+
+      <h2>Por qué esto es importante</h2>
+      <p>
+        NumPy maneja números. Pandas maneja datos reales — con tipos mixtos, valores faltantes, etiquetas.
+        Es donde vives el 80% de tu vida en data science. Si Excel es para humanos, Pandas es Excel + Python
+        + velocidad.
+      </p>
+
+      <h2>Antes de empezar</h2>
+      <p>Necesitas:</p>
+      <ul>
+        <li>Completado Día 5 (NumPy) — entiendes arrays y shapes</li>
+        <li>Pandas instalado (viene con Anaconda)</li>
+        <li>Saber que las Series son vectores etiquetados, DataFrames son matrices etiquetadas</li>
+      </ul>
+
+      <h2>Recurso práctico</h2>
+      <p>
+        <a href="./clase_06.ipynb" target="_blank">Abre el cuaderno</a>. Hoy trabajaremos con Titanic,
+        el dataset clásico. 891 pasajeros, 11 columnas. El Titanic se hundió; algunos sobrevivieron, otros no.
+        Los datos cuentan la historia.
+      </p>
+
+      <h2>Después de esta sesión</h2>
+      <p>
+        Mañana (Día 7) veremos Pandas II — groupby, limpieza, merge. Hoy aprendiste a leer datos.
+        Mañana los transformarás.
+      </p>
+
+      <h2>Materiales adicionales</h2>
+      <ul>
+        <li><a href="https://pandas.pydata.org/docs/getting_started/index.html" target="_blank">Pandas Getting Started</a></li>
+        <li><a href="https://pandas.pydata.org/docs/user_guide/indexing.html" target="_blank">Pandas Indexing Tutorial</a></li>
+        <li><a href="https://mode.com/sql-tutorial/introduction-to-sql/" target="_blank">EDA with Pandas</a></li>
+      </ul>
+    </div>
+  </div>
+
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('pre code').forEach(function (block) {
-        hljs.highlightElement(block);
-      });
-      // close sidebar on main click (mobile)
-      document.getElementById('main').addEventListener('click', function () {
-        document.getElementById('sidebar').classList.remove('open');
+    document.querySelectorAll('.sb-index-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelectorAll('.sb-index-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
       });
     });
   </script>
 </body>
-
 </html>
