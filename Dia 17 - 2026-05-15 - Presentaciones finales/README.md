@@ -8,7 +8,7 @@
 
 **Fecha:** Viernes 15 de mayo de 2026  
 **Módulo:** Módulo 4 · Ciencia de datos aplicada y escalabilidad  
-**Duración:** 2 horas sincrónicas  
+**Duración:** 2 horas 30 minutos sincrónicas  
 
 ---
 

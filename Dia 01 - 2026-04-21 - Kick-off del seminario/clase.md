@@ -2,7 +2,7 @@
 
 **Fecha:** Martes 21 de abril de 2026  
 **Módulo:** Módulo 1 · Introducción a Python y kick-off del proyecto  
-**Duración:** 2 horas sincrónicas  
+**Duración:** 2 horas 30 minutos sincrónicas  
 
 ---
 
@@ -47,7 +47,7 @@ Docente, estudiantes, reglas de la sesión virtual y vinculación con el proceso
 
 ### 2. Metodología y evaluación
 
-10 horas sincrónicas + 20 horas asincrónicas por semana. Entregables semanales (S1 a S4) y defensa oral del Producto de Software Analítico ante un tribunal.
+40 horas sincrónicas en 17 sesiones a lo largo de 4 semanas (la mayoría de 2h30, la semana 3 de 2h). Trabajo asincrónico: ~20 horas por semana. Entregables semanales (S1 a S4) y defensa oral del Producto de Software Analítico ante un tribunal.
 
 ### 3. Recorrido por los 15 casos de la matriz
 

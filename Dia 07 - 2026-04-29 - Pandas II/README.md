@@ -8,7 +8,7 @@
 
 **Fecha:** Miércoles 29 de abril de 2026  
 **Módulo:** Módulo 2 · Manipulación y análisis de datos  
-**Duración:** 2 horas sincrónicas  
+**Duración:** 2 horas 30 minutos sincrónicas  
 
 ---
 

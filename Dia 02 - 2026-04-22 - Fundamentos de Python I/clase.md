@@ -2,7 +2,7 @@
 
 **Fecha:** Miércoles 22 de abril de 2026  
 **Módulo:** Módulo 1 · Introducción a Python y kick-off del proyecto  
-**Duración:** 2 horas sincrónicas  
+**Duración:** 2 horas 30 minutos sincrónicas  
 
 ---
 
