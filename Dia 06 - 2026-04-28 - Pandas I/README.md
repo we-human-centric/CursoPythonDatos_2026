@@ -1,4 +1,4 @@
-[← Día 05](../Dia%2005%20-%202026-04-27%20-%20NumPy/) · [🏠 Índice](../README.md) · [Día 07 →](../Dia%2007%20-%202026-04-29%20-%20Pandas%20II/)
+[← Día 05](../Dia%2005%20-%202026-04-27%20-%20OOP/) · [🏠 Índice](../README.md) · [Día 07 →](../Dia%2007%20-%202026-04-29%20-%20Pandas%20II/)
 
 <a href="https://colab.research.google.com/github/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2006%20-%202026-04-28%20-%20Pandas%20I/clase_06.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  &nbsp; [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2006%20-%202026-04-28%20-%20Pandas%20I/clase_06.ipynb)
 
@@ -83,6 +83,6 @@ Notebook `04_pandas_carga.ipynb` + ficha de exploración en `docs/ficha_dataset.
 
 ---
 
-[← Día 05](../Dia%2005%20-%202026-04-27%20-%20NumPy/) · [🏠 Índice](../README.md) · [Día 07 →](../Dia%2007%20-%202026-04-29%20-%20Pandas%20II/)
+[← Día 05](../Dia%2005%20-%202026-04-27%20-%20OOP/) · [🏠 Índice](../README.md) · [Día 07 →](../Dia%2007%20-%202026-04-29%20-%20Pandas%20II/)
 
 > *Seminario EDA · Abril–Mayo 2026 · [we-human-centric](https://github.com/we-human-centric)*

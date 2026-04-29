@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Día 06 · Pandas I — Seminario EDA 2026</title>
+  <title>Día 05 · Programación Orientada a Objetos — Seminario EDA 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -683,9 +683,9 @@
         <div class="sb-week-hdr"><span class="sb-week-label">Semana 2</span><span
             class="sb-week-sub">27 abr–5 may</span></div>
         <ul>
-          <li class="sb-item"><a href="../Dia%2005%20-%202026-04-27%20-%20OOP/index.html"><span class="dnum">Día
-                05</span><span class="dtitle">OOP</span></a></li>
-          <li class="sb-item active"><a href="../Dia%2006%20-%202026-04-28%20-%20Pandas%20I/index.html"><span class="dnum">Día 06</span><span class="dtitle">Pandas I</span></a></li>
+          <li class="sb-item active"><a href="../Dia%2005%20-%202026-04-27%20-%20OOP/index.html"><span class="dnum">Día 05</span><span class="dtitle">OOP</span></a></li>
+          <li class="sb-item"><a href="../Dia%2006%20-%202026-04-28%20-%20Pandas%20I/index.html"><span class="dnum">Día
+                06</span><span class="dtitle">Pandas I</span></a></li>
           <li class="sb-item"><a href="../Dia%2007%20-%202026-04-29%20-%20Pandas%20II/index.html"><span class="dnum">Día
                 07</span><span class="dtitle">Pandas II</span></a></li>
           <li class="sb-item"><a
@@ -733,79 +733,79 @@
     </nav>
     <main id="main">
       <div class="content-wrap">
-        <div class="breadcrumb"><a href="../index.html">Índice</a><span class="sep">/</span><span style="color:#2980b9;font-weight:700">Semana 2</span><span class="sep">/</span><span class="cur">Día 6 · Pandas I — DataFrames, exploración y selección</span></div>
+        <div class="breadcrumb"><a href="../index.html">Índice</a><span class="sep">/</span><span style="color:#2980b9;font-weight:700">Semana 2</span><span class="sep">/</span><span class="cur">Día 5 · Programación Orientada a Objetos (OOP)</span></div>
         <div class="action-bar"><span class="action-label">Notebook:</span><a
-            href="https://colab.research.google.com/github/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2006%20-%202026-04-28%20-%20Pandas%20I/clase_06.ipynb"
+            href="https://colab.research.google.com/github/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2005%20-%202026-04-27%20-%20OOP/clase_05.ipynb"
             target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg"
               alt="Open In Colab"></a><a
-            href="https://nbviewer.org/github/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2006%20-%202026-04-28%20-%20Pandas%20I/clase_06.ipynb"
+            href="https://nbviewer.org/github/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2005%20-%202026-04-27%20-%20OOP/clase_05.ipynb"
             target="_blank"><img
               src="https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg"
               alt="nbviewer"></a><a
-            href="https://github.com/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2006%20-%202026-04-28%20-%20Pandas%20I/clase_06.ipynb"
+            href="https://github.com/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2005%20-%202026-04-27%20-%20OOP/clase_05.ipynb"
             target="_blank" style="color:#2980b9;font-size:.8rem">Ver en GitHub ↗</a></div>
-        <h1>Día 6 · Pandas I — DataFrames, exploración y selección</h1>
-        <p><strong>Fecha:</strong> Martes 28 de abril de 2026<br />
+        <h1>Día 5 · Programación Orientada a Objetos (OOP)</h1>
+        <p><strong>Fecha:</strong> Lunes 27 de abril de 2026<br />
           <strong>Módulo:</strong> Módulo 2 · Manipulación y análisis de datos<br />
           <strong>Duración:</strong> 2 horas 30 minutos sincrónicas
         </p>
         <hr />
         <h2>Introducción</h2>
-        <p>Pandas es la herramienta que vas a usar en serio durante el resto del curso. Si Excel fuera código, sería esto — pero más honesto, más rápido y reproducible. Hoy aprendes a crear y cargar <code>DataFrame</code>s, explorarlos con cinco métodos clave, seleccionar partes y filtrar con condiciones. El 80% del trabajo diario de un analista de datos.</p>
+        <p>Hasta ahora escribiste funciones y usaste listas. Hoy das el salto a <strong>objetos</strong>. La idea es simple: en vez de tener datos sueltos y funciones sueltas por separado, los envuelves juntos en una <strong>clase</strong>. Una clase es como un molde; cada vez que lo usas obtienes un <strong>objeto</strong> con sus propios datos y sus propias funciones. Esto importa porque Pandas, scikit-learn y Matplotlib están construidos así.</p>
         <h2>Objetivos de aprendizaje</h2>
         <p>Al terminar la sesión podrás:</p>
         <ul>
-          <li>Crear <code>Series</code> y <code>DataFrame</code>s desde listas, diccionarios y archivos.</li>
-          <li>Auditar un dataset nuevo con <code>.shape</code>, <code>.info()</code>, <code>.describe()</code> y <code>.isnull()</code>.</li>
-          <li>Seleccionar columnas, filas y subconjuntos con <code>.loc</code> e <code>.iloc</code>.</li>
-          <li>Filtrar filas con condiciones booleanas y con <code>.query()</code>.</li>
-          <li>Crear columnas derivadas vectorizadas y reorganizar el índice.</li>
+          <li>Distinguir entre clase y objeto, atributo y método.</li>
+          <li>Usar <code>__init__</code> para inicializar el estado del objeto.</li>
+          <li>Aplicar herencia para evitar duplicar código entre clases relacionadas.</li>
+          <li>Reconocer polimorfismo y encapsulamiento en código real.</li>
+          <li>Conectar lo aprendido con Pandas (cada DataFrame es un objeto).</li>
         </ul>
         <h2>Contenidos de la sesión</h2>
         <ul>
-          <li><strong>Series:</strong> vector etiquetado y alineación por índice.</li>
-          <li><strong>DataFrame:</strong> tabla con tipos heterogéneos y nulos.</li>
-          <li><strong>Lectura de datos:</strong> <code>read_csv</code>, <code>read_excel</code>, <code>read_json</code>.</li>
-          <li><strong>Exploración rápida:</strong> <code>.shape</code>, <code>.info()</code>, <code>.describe()</code>, <code>.head()</code>, <code>.sample()</code>.</li>
-          <li><strong>Selección:</strong> <code>df["col"]</code>, <code>.loc</code>, <code>.iloc</code>.</li>
-          <li><strong>Filtros:</strong> indexación booleana con <code>&amp;</code>, <code>|</code>, <code>~</code> y <code>.query()</code>.</li>
-          <li><strong>Tablas cruzadas:</strong> <code>pd.crosstab()</code> para ver patrones entre dos variables.</li>
+          <li>Clases, objetos y métodos: la estructura mínima.</li>
+          <li>El constructor <code>__init__</code> y los atributos de instancia.</li>
+          <li>Herencia con <code>super().__init__()</code>.</li>
+          <li>Polimorfismo: misma interfaz, distinto comportamiento.</li>
+          <li>Encapsulamiento: atributos públicos, <code>_protegidos</code> y <code>__privados</code>.</li>
+          <li>Métodos estáticos y <code>@property</code> para validar datos.</li>
+          <li>Métodos mágicos: <code>__str__</code>, <code>__len__</code>, <code>__add__</code>, <code>__eq__</code>.</li>
         </ul>
         <h2>Antes de empezar</h2>
         <ul>
-          <li>Completado Día 5 (OOP) — los DataFrame son objetos con métodos.</li>
-          <li>Pandas instalado (viene con Anaconda o <code>pip install pandas</code>).</li>
-          <li>Aceptar que los corchetes dobles <code>df[["a", "b"]]</code> son intencionales.</li>
+          <li>Completados los Días 1–4: Python básico, funciones y estructuras de datos.</li>
+          <li>Tener Jupyter o Google Colab abierto.</li>
+          <li>Aceptar que la primera vez que escribes una clase se siente raro — luego no.</li>
         </ul>
         <h2>Recurso práctico</h2>
-        <p><a href="./clase_06.ipynb" target="_blank">Abre el cuaderno</a>. Trabajamos con el dataset Titanic — 891 pasajeros, 15 columnas. Cuatro ejercicios guiados, tres desafíos y un checkpoint final.</p>
+        <p><a href="./clase_05.ipynb" target="_blank">Abre el cuaderno</a>. Construirás clases <code>Persona</code>, <code>Estudiante</code>, <code>Profesor</code>, <code>Rectángulo</code> y un mini <code>DatasetSimple</code> que prefigura cómo funciona Pandas por dentro.</p>
         
         <h2>Después de esta sesión</h2>
-        <p>Mañana (Día 7) toca <strong>Pandas II</strong>: <code>groupby</code>, limpieza de nulos, merge y pivot. Hoy aprendiste a leer y filtrar; mañana vas a transformar.</p>
+        <p>Mañana (Día 6) entras a <strong>Pandas I</strong>. Los <code>DataFrame</code> que vas a manipular son <em>objetos</em> con <em>métodos</em>: <code>df.head()</code>, <code>df.describe()</code>… todo lo que ves hoy se aplica directo.</p>
         <h2>Materiales adicionales</h2>
         <ul>
-          <li><a href="https://pandas.pydata.org/docs/getting_started/index.html" target="_blank" rel="noopener">Pandas · Getting Started (oficial)</a></li>
-          <li><a href="https://pandas.pydata.org/docs/user_guide/indexing.html" target="_blank" rel="noopener">Pandas · Indexing & Selecting Data</a></li>
-          <li><a href="https://pandas.pydata.org/docs/user_guide/10min.html" target="_blank" rel="noopener">10 minutes to pandas (recorrido oficial corto)</a></li>
+          <li><a href="https://docs.python.org/3/tutorial/classes.html" target="_blank" rel="noopener">Python Docs · Classes (tutorial oficial)</a></li>
+          <li><a href="https://realpython.com/python3-object-oriented-programming/" target="_blank" rel="noopener">Real Python · Object-Oriented Programming in Python 3</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Tje_s_j7Suk" target="_blank" rel="noopener">Mouredev · Programación Orientada a Objetos en Python</a></li>
         </ul>
         <h2>🎬 Video recomendado</h2>
         <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.2rem 0 1rem;">
           <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-            src="https://www.youtube.com/embed/fW4olN1JWzQ"
-            title="Curso de Pandas en Python — Píldoras Informáticas"
+            src="https://www.youtube.com/embed/Tje_s_j7Suk"
+            title="Programación Orientada a Objetos en Python — Mouredev"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
         </div>
-        <p><strong><a href="https://www.youtube.com/watch?v=fW4olN1JWzQ" target="_blank" rel="noopener">Curso de Pandas en Python — Píldoras Informáticas</a></strong></p>
-        <p><em>Repaso pausado en español: Series, DataFrames, lectura de archivos y selección.</em></p>
+        <p><strong><a href="https://www.youtube.com/watch?v=Tje_s_j7Suk" target="_blank" rel="noopener">Programación Orientada a Objetos en Python — Mouredev</a></strong></p>
+        <p><em>Canal de Brais Moure: clases, herencia y polimorfismo con ejemplos claros en español.</em></p>
         <hr />
-        <p><a href="../Dia%2005%20-%202026-04-27%20-%20OOP/">← Día 05</a> · <a href="../README.md">🏠 Índice</a> · <a href="../Dia%2007%20-%202026-04-29%20-%20Pandas%20II/">Día 07 →</a></p>
+        <p><a href="../Dia%2004%20-%202026-04-24%20-%20Planteamiento%20del%20proyecto/">← Día 04</a> · <a href="../README.md">🏠 Índice</a> · <a href="../Dia%2006%20-%202026-04-28%20-%20Pandas%20I/">Día 06 →</a></p>
         <blockquote>
           <p><em>Seminario EDA · 2026</em></p>
         </blockquote>
-        <nav class="page-nav"><a href="../Dia%2005%20-%202026-04-27%20-%20OOP/index.html"
-            class="pn-btn prev"><span class="pn-label">Anterior</span><span class="pn-title">Día 05 · Programación Orientada a Objetos</span></a><a href="../Dia%2007%20-%202026-04-29%20-%20Pandas%20II/index.html"
-            class="pn-btn next"><span class="pn-label">Siguiente</span><span class="pn-title">Día 07 · Pandas II — Agrupaciones y limpieza</span></a></nav>
+        <nav class="page-nav"><a href="../Dia%2004%20-%202026-04-24%20-%20Planteamiento%20del%20proyecto/index.html"
+            class="pn-btn prev"><span class="pn-label">Anterior</span><span class="pn-title">Día 04 · Planteamiento del proyecto</span></a><a href="../Dia%2006%20-%202026-04-28%20-%20Pandas%20I/index.html"
+            class="pn-btn next"><span class="pn-label">Siguiente</span><span class="pn-title">Día 06 · Pandas I — DataFrames y selección</span></a></nav>
       </div>
     </main>
   </div>

@@ -1,4 +1,4 @@
-[← Día 03](../Dia%2003%20-%202026-04-23%20-%20Fundamentos%20de%20Python%20II/) · [🏠 Índice](../README.md) · [Día 05 →](../Dia%2005%20-%202026-04-27%20-%20NumPy/)
+[← Día 03](../Dia%2003%20-%202026-04-23%20-%20Fundamentos%20de%20Python%20II/) · [🏠 Índice](../README.md) · [Día 05 →](../Dia%2005%20-%202026-04-27%20-%20OOP/)
 
 <a href="https://colab.research.google.com/github/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2004%20-%202026-04-24%20-%20Planteamiento%20del%20proyecto/clase_04.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  &nbsp; [![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/github/we-human-centric/CursoPythonDatos_2026/blob/main/Dia%2004%20-%202026-04-24%20-%20Planteamiento%20del%20proyecto/clase_04.ipynb)
 
@@ -93,6 +93,6 @@ Presentación de 5 minutos por equipo al final de la sesión + enlace al reposit
 
 ---
 
-[← Día 03](../Dia%2003%20-%202026-04-23%20-%20Fundamentos%20de%20Python%20II/) · [🏠 Índice](../README.md) · [Día 05 →](../Dia%2005%20-%202026-04-27%20-%20NumPy/)
+[← Día 03](../Dia%2003%20-%202026-04-23%20-%20Fundamentos%20de%20Python%20II/) · [🏠 Índice](../README.md) · [Día 05 →](../Dia%2005%20-%202026-04-27%20-%20OOP/)
 
 > *Seminario EDA · Abril–Mayo 2026 · [we-human-centric](https://github.com/we-human-centric)*
