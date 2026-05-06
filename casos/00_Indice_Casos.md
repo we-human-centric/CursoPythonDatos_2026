@@ -38,9 +38,12 @@ Cada archivo contiene la descripción completa de un caso de estudio: antecedent
 |---|---|---|---|
 | 1 | 21–25 abr | Definición del problema: pregunta de negocio, historias de usuario, ficha del dataset | 10 % |
 | 2 | 28 abr–2 may | Pipeline completo: carga, limpieza, ingeniería de características, EDA básico | 20 % |
+| — | lun (mitad) | **[Punto de control intermedio](Entregable_Intermedio_Mitad_Seminario.md)**: repo estructurado, contexto del negocio, cuadernos de preparación y EDA con insights, bitácora de IA | — |
 | 3 | 5–9 may | EDA profundo + primer modelo con métricas documentadas | 25 % |
 | 4 | 12–15 may | Producto analítico completo: ≥ 2 modelos comparados, API + dashboard funcionales | 30 % |
 | 4 | 15 may | Defensa oral (15 min por grupo) | 15 % |
+
+> 🔎 El **[entregable intermedio del lunes](Entregable_Intermedio_Mitad_Seminario.md)** es transversal a todos los casos: define la estructura de repositorio, los cuadernos mínimos y la documentación obligatoria de uso de IA (Antigravity, Claude Code y similares).
 
 ---
 

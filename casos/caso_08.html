@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caso 08 · Detección de Fraude Financiero — Seminario EDA 2026</title>
+  <title>Caso 08 · Detección de Fraude en E-Commerce — Seminario EDA 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -113,77 +113,95 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); line
   </a>
 </header>
 <div id="layout">
-  <nav id="sidebar"><div class="sb-header">Casos de Estudio</div><a href="../index.html" class="sb-index-link">← Inicio del curso</a><a href="index.html" class="sb-index-link ">📋 Todos los casos</a><div class="sb-week" style="margin-top:.4rem"><div class="sb-week-hdr"><span class="sb-week-label">Proyectos</span></div><ul><li class="sb-item"><a href="caso_01.html" class=""><span class="dnum">C01</span><span class="dtitle">Segmentación de Clientes — Retail</span></a></li>
+  <nav id="sidebar"><div class="sb-header">Casos de Estudio</div><a href="../index.html" class="sb-index-link">← Inicio del curso</a><a href="index.html" class="sb-index-link ">📋 Todos los casos</a><a href="entregable_intermedio.html" class="sb-index-link">📦 Entregable intermedio</a><div class="sb-week" style="margin-top:.4rem"><div class="sb-week-hdr"><span class="sb-week-label">Proyectos</span></div><ul><li class="sb-item"><a href="caso_01.html" class=""><span class="dnum">C01</span><span class="dtitle">Segmentación de Clientes — Retail</span></a></li>
 <li class="sb-item"><a href="caso_02.html" class=""><span class="dnum">C02</span><span class="dtitle">Sistema Bancario Ecuatoriano</span></a></li>
 <li class="sb-item"><a href="caso_03.html" class=""><span class="dnum">C03</span><span class="dtitle">Scouting y Valoración FIFA 21</span></a></li>
 <li class="sb-item"><a href="caso_04.html" class=""><span class="dnum">C04</span><span class="dtitle">Movilidad Urbana Nueva York</span></a></li>
 <li class="sb-item"><a href="caso_05.html" class=""><span class="dnum">C05</span><span class="dtitle">Actividad Sísmica Ecuador</span></a></li>
 <li class="sb-item"><a href="caso_06.html" class=""><span class="dnum">C06</span><span class="dtitle">Reseñas Amazon — Predicción de Utilidad</span></a></li>
 <li class="sb-item"><a href="caso_07.html" class=""><span class="dnum">C07</span><span class="dtitle">Predicción de Hits de Spotify</span></a></li>
-<li class="sb-item"><a href="caso_08.html" class="active"><span class="dnum">C08</span><span class="dtitle">Detección de Fraude Financiero</span></a></li>
+<li class="sb-item"><a href="caso_08.html" class="active"><span class="dnum">C08</span><span class="dtitle">Detección de Fraude en E-Commerce</span></a></li>
 <li class="sb-item"><a href="caso_09.html" class=""><span class="dnum">C09</span><span class="dtitle">E-Commerce OLIST Brasil</span></a></li>
 <li class="sb-item"><a href="caso_10.html" class=""><span class="dnum">C10</span><span class="dtitle">Tendencias Tecnológicas Stack Overflow</span></a></li></ul></div></nav>
   <main id="main">
     <div class="content-wrap"><div class="breadcrumb"><a href="../index.html">Inicio</a><span class="sep">›</span><a href="index.html">Casos de estudio</a><span class="sep">›</span><span class="cur">Caso 08</span></div>
-<h1>Caso 08 · Detección de Fraude Financiero</h1>
-<div class="caso-ficha"><div class="caso-chip"><span class="chip-label">Dominio</span><span class="chip-value">Fintech</span></div><div class="caso-chip"><span class="chip-label">Técnica principal</span><span class="chip-value">Clasificación desbalanceada</span></div><div class="caso-chip"><span class="chip-label">Dataset</span><span class="chip-value">284 807 transacciones</span></div></div>
+<h1>Caso 08 · Detección de Fraude en Transacciones de E-Commerce</h1>
+<div class="caso-ficha"><div class="caso-chip"><span class="chip-label">Dominio</span><span class="chip-value">Fintech / E-Commerce</span></div><div class="caso-chip"><span class="chip-label">Técnica principal</span><span class="chip-value">Clasificación + Explicabilidad</span></div><div class="caso-chip"><span class="chip-label">Dataset</span><span class="chip-value">~590 000 transacciones (multi-tabla)</span></div></div>
 <hr id="contexto"/>
 <h2>Contexto del problema</h2>
-<p>El fraude con tarjetas de crédito genera pérdidas globales superiores a <strong>USD 30,000 millones anuales</strong>. El dataset del Machine Learning Group de la Université Libre de Bruxelles contiene <strong>284,807 transacciones reales</strong> de dos días en Europa, de las cuales solo <strong>492 son fraudulentas (0.17 %)</strong>.</p>
-<p>Por razones de confidencialidad, las variables originales fueron transformadas mediante PCA, resultando en 28 componentes anónimos (V1–V28) más tres columnas interpretables:</p>
+<p>El fraude con tarjetas de crédito y pagos en línea genera pérdidas globales superiores a <strong>USD 30,000 millones anuales</strong>. Este caso utiliza el dataset de la competencia <strong>IEEE-CIS Fraud Detection</strong>, organizada por <strong>Vesta Corporation</strong>, con <strong>~590,000 transacciones reales</strong> de e-commerce y una tasa de fraude del <strong>~3.5 % (≈ 20 663 casos)</strong> — un desbalance significativo pero menos extremo que datasets totalmente anonimizados, lo que permite trabajar con métricas estables.</p>
+<p>Los datos están distribuidos en <strong>dos tablas relacionales</strong> que deben unirse por <code>TransactionID</code> con un <em>left join</em> para conservar todas las transacciones aunque no tengan información de identidad:</p>
 <ul>
-<li><code>Time</code> — segundos desde la primera transacción del dataset</li>
-<li><code>Amount</code> — monto de la transacción en euros</li>
-<li><code>Class</code> — etiqueta: 0 = legítima, 1 = fraude</li>
+<li><code>train_transaction.csv</code> — información de la transacción: monto (<code>TransactionAmt</code>), tipo de producto (<code>ProductCD</code>), datos parciales de la tarjeta (<code>card1</code>–<code>card6</code>), dominios de correo del comprador y receptor (<code>P_emaildomain</code>, <code>R_emaildomain</code>) y distancia entre direcciones (<code>dist1</code>, <code>dist2</code>)</li>
+<li><code>train_identity.csv</code> — información del dispositivo y sesión: tipo de dispositivo (<code>DeviceType</code>), información del dispositivo (<code>DeviceInfo</code>) y atributos de identidad (<code>id_01</code>–<code>id_38</code>)</li>
+<li><code>isFraud</code> — etiqueta: 0 = legítima, 1 = fraude</li>
 </ul>
-<p><strong>Este es el caso más extremo de desbalance de clases de la matriz.</strong> Un modelo que predice &quot;legítima&quot; para todas las transacciones obtiene 99.83 % de exactitud pero detecta <strong>cero fraudes</strong>. La decisión estratégica central es el ajuste del umbral de decisión: capturar más fraudes siempre implica más falsas alarmas, y ese equilibrio debe comunicarse a la gerencia como una decisión de negocio, no técnica.</p>
-<p>---</p>
+<p>A diferencia de datasets totalmente anonimizados, aquí las features tienen <strong>nombres interpretables</strong> que pueden traducirse a lenguaje de negocio (marca de tarjeta, dominio de correo, tipo de dispositivo, categoría de producto). Esto permite construir un modelo cuyas decisiones se pueden explicar al área de operaciones. El reto técnico es triple:</p>
+<ol>
+<li><strong>Desbalance de clases</strong> — un modelo trivial que predice "legítima" para todo obtiene ~96.5 % de exactitud detectando cero fraudes</li>
+<li><strong>Valores faltantes a gran escala</strong> — varias columnas superan el 50 % de nulos y requieren una estrategia explícita de descarte e imputación</li>
+<li><strong>Variables categóricas de alta cardinalidad</strong> — dominios de correo y modelos de dispositivo necesitan codificación adecuada</li>
+</ol>
 <hr id="objetivo"/>
 <h2>Objetivo del proyecto</h2>
-<p>Construir un sistema de detección de fraude que maneje el desbalance extremo con rigor técnico, compare múltiples estrategias de tratamiento, y <strong>comunique visualmente la compensación Precisión-Recall</strong> para que la gerencia tome la decisión de umbral con criterio de negocio.</p>
-<p>---</p>
+<p>Construir un sistema de detección de fraude que combine el rigor estadístico del manejo de clases desbalanceadas con la <strong>explicabilidad de las features</strong>, de modo que cada alerta pueda justificarse al área de operaciones (ej. <em>"transacción marcada por dominio de correo poco común + dispositivo nuevo + monto fuera de patrón"</em>) y la gerencia pueda tomar la decisión de umbral con criterio de negocio.</p>
 <hr id="fases"/>
 <h2>Actividades del proyecto</h2>
-<div class="ra-box">🎓 <strong>Resultado de aprendizaje:</strong> el estudiante maneja el desbalance extremo de clases con múltiples estrategias, elige y fundamenta métricas de evaluación apropiadas, y construye una herramienta de apoyo a la decisión gerencial.</div>
+<div class="ra-box">🎓 <strong>Resultado de aprendizaje:</strong> el estudiante integra dos tablas relacionales con valores faltantes a gran escala, codifica variables categóricas de alta cardinalidad, maneja el desbalance de clases con múltiples estrategias, y construye un sistema de detección cuyas alertas son <strong>explicables</strong> al área de negocio.</div>
 <div class="phase-list">
-<div class="phase-card"><div class="phase-card-header"><div class="phase-num">1</div><span class="phase-title">🔍 Comprensión del dominio</span></div><div class="phase-body"><p>Investigar el impacto económico del fraude financiero. Explicar por qué la exactitud (accuracy) es una métrica engañosa en este problema. Analizar el <strong>costo asimétrico de los dos tipos de error</strong>: no detectar un fraude (falso negativo) vs. bloquear una transacción legítima (falso positivo). Definir qué métrica(s) debería optimizar este sistema y por qué.</p></div></div>
-<div class="phase-card"><div class="phase-card-header"><div class="phase-num">2</div><span class="phase-title">🗂️ Preparación y exploración de datos</span></div><div class="phase-body"><ul>
+<div class="phase-card"><div class="phase-card-header"><div class="phase-num">1</div><span class="phase-title">🔍 Comprensión del dominio</span></div><div class="phase-body"><p>Investigar el impacto económico del fraude en e-commerce. Explicar por qué la exactitud (accuracy) es una métrica engañosa cuando hay desbalance de clases. Analizar el <strong>costo asimétrico de los dos tipos de error</strong>: no detectar un fraude (falso negativo) vs. bloquear una transacción legítima (falso positivo) — ambos tienen costos muy distintos para el negocio. Definir qué métrica(s) debería optimizar este sistema y por qué la <strong>explicabilidad de las alertas</strong> es tan importante como su precisión: el equipo de operaciones necesita entender por qué una transacción fue marcada para tomar la decisión final.</p></div></div>
+<div class="phase-card"><div class="phase-card-header"><div class="phase-num">2</div><span class="phase-title">🗂️ Preparación y exploración de datos</span></div><div class="phase-body"><p><strong>Integración multi-tabla:</strong></p>
+<pre><code class="language-python">df = pd.merge(transaction, identity, on='TransactionID', how='left')</code></pre>
+<p>El <em>left join</em> conserva todas las transacciones aunque no tengan registro de identidad — el hecho de que falte la identidad puede ser, en sí mismo, una señal informativa.</p>
+<p><strong>Manejo de valores faltantes:</strong></p>
+<ul>
+<li>Cuantificar el porcentaje de nulos por columna y graficarlo</li>
+<li>Definir un umbral explícito de descarte (sugerido: > 80 % de nulos)</li>
+<li>Imputar el resto con criterio: mediana para numéricas; categoría <code>"missing"</code> propia para categóricas (no inventar valores)</li>
+</ul>
+<p><strong>Codificación de variables categóricas:</strong></p>
+<table><thead><tr><th>Tipo de variable</th><th>Estrategia</th><th>Ejemplo</th></tr></thead><tbody><tr><td>Baja cardinalidad (≤ 10 valores)</td><td><code>pd.get_dummies()</code></td><td><code>ProductCD</code>, <code>card4</code>, <code>DeviceType</code></td></tr><tr><td>Alta cardinalidad (decenas o cientos)</td><td><code>LabelEncoder</code> o frequency encoding</td><td><code>P_emaildomain</code>, <code>DeviceInfo</code></td></tr></tbody></table>
+<p><strong>EDA explicable:</strong></p>
+<ul>
+<li>Tasa de fraude por <code>ProductCD</code>, marca de tarjeta (<code>card4</code>), dominio de correo (<code>P_emaildomain</code>) y tipo de dispositivo (<code>DeviceType</code>)</li>
+<li>Distribución de <code>TransactionAmt</code> entre fraudes y transacciones legítimas (boxplots y log-scale)</li>
 <li>Cuantificar y documentar el desbalance de clases con gráficos claros</li>
-<li>Analizar si <code>Amount</code> y <code>Time</code> difieren estadísticamente entre fraudes y transacciones legítimas (boxplots)</li>
-<li>Diseñar el esquema de validación cruzada estratificada para evitar fuga de información con datos desbalanceados</li>
+<li>Diseñar el esquema de validación cruzada estratificada para preservar la proporción de fraudes en cada fold</li>
 </ul></div></div>
 <div class="phase-card"><div class="phase-card-header"><div class="phase-num">3</div><span class="phase-title">🧪 Modelado</span></div><div class="phase-body"><p>Comparar al menos <strong>4 combinaciones</strong>: 2 estrategias de manejo del desbalance × 2 clasificadores:</p>
-<table><thead><tr><th>Estrategia</th><th>Descripción</th></tr></thead><tbody><tr><td>A — Pesos de clase</td><td><code>class_weight=&#x27;balanced&#x27;</code> en el modelo — más simple, sin modificar los datos</td></tr><tr><td>B — SMOTE</td><td>Sobremuestreo sintético del training set — genera nuevos ejemplos de fraude</td></tr></tbody></table>
-<p>Clasificadores: Logistic Regression (baseline) y Random Forest (modelo principal).</p>
-<p>Evaluar todas las combinaciones con Precisión, Recall, F1 y ROC-AUC. Seleccionar la mejor y analizar el efecto de mover el umbral de decisión sobre el equilibrio entre capturar fraudes y generar falsas alarmas.</p></div></div>
+<table><thead><tr><th>Estrategia</th><th>Descripción</th></tr></thead><tbody><tr><td>A — Pesos de clase</td><td><code>class_weight=&#x27;balanced&#x27;</code> en el modelo — más simple, sin modificar los datos</td></tr><tr><td>B — SMOTE</td><td>Sobremuestreo sintético del training set — genera nuevos ejemplos de fraude (nunca aplicar sobre el test set)</td></tr></tbody></table>
+<p><strong>Clasificadores:</strong> Logistic Regression como baseline interpretable y <strong>LightGBM</strong> o Random Forest como modelo principal (LightGBM maneja categóricas y nulos nativamente, ideal para este dataset).</p>
+<p>Evaluar todas las combinaciones con Precisión, Recall, F1 y ROC-AUC usando <code>StratifiedKFold</code>. Seleccionar la mejor y analizar el efecto de mover el umbral de decisión sobre el equilibrio entre capturar fraudes y generar falsas alarmas.</p>
+<p><strong>Explicabilidad del modelo:</strong> extraer <code>feature_importances_</code> del modelo principal y/o calcular valores SHAP para identificar las features que más contribuyen a las decisiones globales y a cada predicción individual.</p></div></div>
 <div class="phase-card"><div class="phase-card-header"><div class="phase-num">4</div><span class="phase-title">🚀 Producto analítico</span></div><div class="phase-body"><p><strong>Pipeline técnico:</strong></p>
 <ul>
+<li>Join multi-tabla, descarte e imputación de nulos, codificación de categóricas — todo modularizado y reproducible</li>
 <li>Comparar <code>class_weight=&#x27;balanced&#x27;</code> vs. SMOTE sobre el training set únicamente (nunca sobre test)</li>
 <li>Evaluar con <code>StratifiedKFold</code> para preservar la proporción de fraudes en cada fold</li>
-<li>Analizar la curva Precision-Recall (más informativa que ROC para desbalance extremo)</li>
-<li>Guardar el mejor modelo para el servicio de inferencia</li>
+<li>Analizar la curva Precision-Recall (más informativa que ROC con clases desbalanceadas)</li>
+<li>Guardar el mejor modelo y el explicador SHAP para el servicio de inferencia</li>
 </ul>
 <p><strong>API (FastAPI):</strong></p>
 <ul>
-<li><code>POST /transactions/evaluate</code> — recibe atributos (V1–V28 + Amount); devuelve clasificación y probabilidad de fraude</li>
+<li><code>POST /transactions/evaluate</code> — recibe atributos de una transacción (monto, <code>ProductCD</code>, marca de tarjeta, dominio de correo, tipo de dispositivo, etc.); devuelve clasificación, probabilidad de fraude y los <strong>3 factores que más contribuyeron a la predicción</strong> (vía <code>feature_importances_</code> o SHAP)</li>
 <li><code>GET /transactions/threshold?value=0.3</code> — métricas proyectadas (Precisión, Recall estimados) para un umbral dado</li>
 </ul>
 <p><strong>Dashboard (Streamlit):</strong></p>
 <ol>
-<li>Simulación de flujo de transacciones recientes con indicadores verde/rojo</li>
-<li>Matriz de confusión visual + curva Precisión-Recall del modelo seleccionado en el test set</li>
+<li>Simulación de flujo de transacciones recientes con indicadores verde/rojo. Al hacer clic en una alerta se despliega el <strong>desglose explicativo</strong>: <em>"dispositivo nuevo + dominio sospechoso + monto atípico"</em></li>
+<li>Matriz de confusión visual + curva Precisión-Recall del modelo seleccionado, junto con un gráfico de importancia de variables interpretable que responde <em>"¿qué señales delatan al fraude en este negocio?"</em></li>
 <li><strong>Slider interactivo de umbral de decisión</strong> que actualiza en tiempo real: Precisión, Recall y número proyectado de fraudes capturados y falsas alarmas por día — la vista más valiosa para la toma de decisión gerencial</li>
 </ol></div></div>
-<div class="phase-card"><div class="phase-card-header"><div class="phase-num">5</div><span class="phase-title">💬 Interpretación y comunicación</span></div><div class="phase-body"><p>¿Qué umbral recomendarían y por qué? ¿Cuál es el costo de equivocarse en cada dirección? Presentar a la gerencia la decisión de umbral como una <strong>compensación explícita entre dos riesgos de negocio</strong>, no como un problema técnico.</p>
-<p>---</p></div></div>
+<div class="phase-card"><div class="phase-card-header"><div class="phase-num">5</div><span class="phase-title">💬 Interpretación y comunicación</span></div><div class="phase-body"><p>¿Qué umbral recomendarían y por qué? ¿Cuál es el costo de equivocarse en cada dirección? ¿Qué patrones de comportamiento delata el modelo (combinaciones de dispositivo, dominio, monto y producto)? Presentar a la gerencia la decisión de umbral como una <strong>compensación explícita entre dos riesgos de negocio</strong>, no como un problema técnico, y demostrar con casos concretos cómo el sistema explica cada alerta al equipo de operaciones.</p></div></div>
 
 </div>
 <hr id="dataset"/>
 <h2>Dataset y recursos</h2>
 <div class="dataset-box">
   <div class="ds-title">📦 Fuentes de datos</div>
-  <p>🔗 <a href="https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud" target="_blank"><strong>Credit Card Fraud Detection — ULB / Kaggle</strong></a></p>
-  <p style="margin-top:.7rem;font-weight:700;font-size:.85rem;color:#1a5276">Lecturas recomendadas:</p><ul><li>Métricas para clasificación desbalanceada: Precision, Recall, F1 y ROC-AUC</li><li>Curvas ROC y Precision-Recall: lectura e interpretación comparada</li><li>SMOTE: sobremuestreo sintético con imbalanced-learn</li><li>Ajuste de umbral de decisión en clasificadores probabilísticos</li><li>Validación cruzada estratificada (StratifiedKFold) en datos desbalanceados</li></ul>
+  <p>🔗 <a href="https://www.kaggle.com/competitions/ieee-fraud-detection/data" target="_blank"><strong>IEEE-CIS Fraud Detection — Vesta Corporation / Kaggle</strong></a></p>
+  <p style="margin-top:.4rem;font-size:.85rem">Archivos requeridos: <code>train_transaction.csv</code> y <code>train_identity.csv</code> (unidos por <code>TransactionID</code>).</p>
+  <p style="margin-top:.7rem;font-weight:700;font-size:.85rem;color:#1a5276">Lecturas recomendadas:</p><ul><li>Manejo de valores faltantes a gran escala con Pandas (descarte vs. imputación)</li><li>Codificación de variables categóricas: <code>get_dummies</code> vs. <code>LabelEncoder</code> vs. frequency encoding</li><li>Métricas para clasificación desbalanceada: Precision, Recall, F1 y ROC-AUC</li><li>Curvas ROC y Precision-Recall: lectura e interpretación comparada</li><li>Importancia de variables y SHAP para explicabilidad de modelos</li><li>SMOTE: sobremuestreo sintético con imbalanced-learn</li><li>Ajuste de umbral de decisión en clasificadores probabilísticos</li><li>LightGBM para datasets con muchas categóricas y nulos</li><li>Validación cruzada estratificada (<code>StratifiedKFold</code>) en datos desbalanceados</li></ul>
 </div>
 <hr id="rubrica"/>
 <h2>Rúbrica de evaluación</h2>
